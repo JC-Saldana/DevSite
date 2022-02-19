@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/JC-Saldana/DevSite/issues"
   },
-  "homepage": "https://github.com/JC-Saldana/DevSite#readme"
+  "homepage": "https://github.com/JC-Saldana/DevSite#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "mongoose": "^6.2.2"
+  }
 }
