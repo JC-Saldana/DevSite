@@ -8,7 +8,7 @@ const projectSchema = new Schema({
   },
   images: {
     type: [String],
-    required: [true, 'At leeast one image is required']
+    required: [true, 'At least one image is required']
   },
   description: {
     type: String,
