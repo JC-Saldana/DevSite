@@ -20,12 +20,16 @@
   "homepage": "https://github.com/JC-Saldana/DevSite#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-session": "^1.17.2",
     "hbs": "^4.2.0",
     "http-errors": "^2.0.0",
     "mongoose": "^6.2.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
