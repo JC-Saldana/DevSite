@@ -1,6 +1,7 @@
-const { render } = require('express/lib/response')
 const mongoose = require('mongoose')
 const User = require('../models/user.model')
+const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy
 
 // register
 module.exports.register = (req, res, next) => {
@@ -25,8 +26,8 @@ module.exports.doRegister = (req, res, next) => {
                     })
             }
         })
-        .catch( err => {
-            if( err instanceof mongoose.Error.ValidationError) {
+        .catch(err => {
+            if (err instanceof mongoose.Error.ValidationError) {
                 renderWithErrors(err.errors)
             } else {
                 next(err)
@@ -35,4 +36,29 @@ module.exports.doRegister = (req, res, next) => {
 }
 
 //login
+module.exports.login = (req, res, next) => {
+    res.render('auth/login')
+}
+
+const login = (req, res, next, provider) => {
+    passport.authenticate(provider || 'local-auth', (err, user, validations) => {
+        if (err) {
+            next(err)
+        } else if (!user) {
+            res.status(404).render('auth/login', { errors: { email: validations.error } })
+        } else {
+            req.login(user, (loginError) => {
+                if (loginError) {
+                    next(loginError)
+                } else {
+                    res.redirect('/')
+                }
+            })
+        }
+    })(req, res, next)
+}
+
+module.exports.doLogin = (req, res, next) => {
+    login(req, res, next);
+}
 

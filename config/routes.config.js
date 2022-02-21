@@ -11,5 +11,7 @@ router.get('/', misc.home)
 //Auth Routes
 router.get('/register', auth.register)
 router.post('/register', auth.doRegister)
+router.get('/login', auth.login)
+router.post('/login', auth.doLogin)
 
 module.exports = router
