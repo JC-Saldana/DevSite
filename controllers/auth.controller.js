@@ -21,7 +21,7 @@ module.exports.doRegister = (req, res, next) => {
                 renderWithErrors({ email: 'Email already in use' })
             } else {
                 return User.create(user)
-                    .then((createdUser) => {
+                    .then(() => {
                         res.redirect('/')
                     })
             }
