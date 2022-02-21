@@ -21,10 +21,7 @@ app.set('view engine', 'hbs')
 const router = require('./config/routes.config')
 app.use('/', router)
 
-/**
- * Error Middlewares
- */
-
+// Error Middlewares
 app.use((req, res, next) => {
   next(createError(404, 'Page not found'));
 });
@@ -40,8 +37,9 @@ app.use((error, req, res, next) => {
 
 })
 
+//listener
 const port = Number(process.env.PORT || 3000);
 
 app.listen(port, () => {
-  console.log(`App listen on port ${port}`)
+  console.log(`App listen on port ${port} 🚀`)
 });
