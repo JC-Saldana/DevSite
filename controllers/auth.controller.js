@@ -45,7 +45,7 @@ const login = (req, res, next, provider) => {
         if (err) {
             next(err)
         } else if (!user) {
-            res.status(404).render('auth/login', { errors: { email: validations.error } })
+            res.status(404).render('auth/login', { errorMessage: validations.error })
         } else {
             req.login(user, (loginError) => {
                 if (loginError) {
