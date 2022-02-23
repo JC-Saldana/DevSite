@@ -25,16 +25,19 @@ const userSchema = new mongoose.Schema({
   googleID: {
     type: String
   },
+  githubId: {
+    type: String
+  },
   biography: {
     type: String,
-    required: true
+/*     required: true */
   },
   currentJob: {
     type: String,
   },
   skills: {
     type: [String],
-    required: true
+/*     required: true */
   },
   webs: {
     type: [String],
