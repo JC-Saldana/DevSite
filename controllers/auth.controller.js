@@ -47,6 +47,7 @@ const login = (req, res, next, provider) => {
         } else if (!user) {
             res.status(404).render('auth/login', { errorMessage: validations.error })
         } else {
+            console.log('entro')
             req.login(user, (loginError) => {
                 if (loginError) {
                     next(loginError)
@@ -63,10 +64,6 @@ module.exports.doLogin = (req, res, next) => {
 }
 
 module.exports.doLoginGitHub = (req, res, next) => {
-    passport.authenticate('github', { failureRedirect: '/login' }),
-    function(req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
-    }
+    passport.authenticate('github', { failureRedirect: '/login' })
 }
 

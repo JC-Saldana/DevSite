@@ -17,6 +17,11 @@ router.post('/login', auth.doLogin)
 
 //Social Login
 router.get('/auth/github', passport.authenticate('github', { scope: [ 'user:email' ] }))
-router.get('/auth/github/callback', auth.doLoginGitHub)
+router.get('/auth/github/callback', 
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  }
+  );
 
 module.exports = router
