@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('passport')
 
 //controllers
 const misc = require('../controllers/misc.controller')
@@ -13,5 +14,9 @@ router.get('/register', auth.register)
 router.post('/register', auth.doRegister)
 router.get('/login', auth.login)
 router.post('/login', auth.doLogin)
+
+//Social Login
+router.get('/auth/github', passport.authenticate('github', { scope: [ 'user:email' ] }))
+router.get('/auth/github/callback', auth.doLoginGitHub)
 
 module.exports = router
