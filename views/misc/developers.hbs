@@ -2,60 +2,10 @@
 	{{#each users as |user|}}
 	<div class="developer">
 		<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="img" class="developer-pic">
-		<p>{{user.name}}</p>
+		<p><strong>{{user.name}}</strong></p>
 		<p>{{user.currentJob}}</p>
-		<p>{{user.skills}}</p>
+		{{!-- <p>{{user.skills}}</p> --}}
+		<button>Contact</button>
 	</div>
 	{{/each}}
-</div>
-
-<div>
-	<div class="profile-body">
-		<div class="profile-pic-container">
-			<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="img" class="profile-pic">
-		</div>
-		<div>
-			<div class="profile-header">
-				<div class="profile-header-left">
-					<h1 class="user-name">{{currentUser.name}}</h1>
-					<i class="fa-solid fa-heart"></i>
-					<i class="fa-solid fa-pen-to-square"></i>
-				</div>
-				<div>
-					<i class="fa-brands fa-github"></i>
-					<i class="fa-brands fa-instagram"></i>
-					<i class="fa-brands fa-facebook"></i>
-				</div>
-			</div>
-			<hr>
-			<sub>- Bio -</sub>
-			<p>{{currentUser.biography}}</p>
-			<sub>- Mail -</sub>
-			<p>{{currentUser.email}}</p>
-			<sub>- Current job -</sub>
-			<p>{{currentUser.currentJob}}</p>
-			<sub>- Skills -</sub>
-
-			<ul class="list-horizontal">
-				{{#each currentUser.skills as |skill|}}
-				<li>
-					<small>{{skill}}</small>
-				</li>
-				{{/each}}
-			</ul>
-
-			<sub>- Projects -</sub>
-			<div class="projects">
-				{{#each currentUser.skills as |skill|}}
-				<div class="project">
-					<a href="">
-						<p class="project-header">{{skill}}</p>
-						<img src="https://dummyimage.com/640x360/fff/aaa" alt="project"
-							style="width: 150px; border: 1px solid black">
-					</a>
-				</div>
-				{{/each}}
-			</div>
-		</div>
-	</div>
 </div>

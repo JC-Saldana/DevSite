@@ -32,6 +32,7 @@ footer {
     border-radius: 100px;
     border: 1px solid rgba(0, 0, 0, 0.4);
     background-color: beige;
+    box-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
 }
 
 li:first-child:before {
@@ -92,6 +93,10 @@ sub {
     align-items: baseline;
 }
 
+hr {
+    box-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
+}
+
 .user-name {
     margin-right: 10px;
 }
@@ -111,22 +116,30 @@ sub {
 }
 
 .developer {
-    width: 200px;
+    width: 225px;
+    height: 250px;
     border-radius: 12px;
     color: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    height: 250px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     width: 175px;
     margin: 5px 12px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+    box-shadow: rgba(142, 167, 192, 0.281) 0px 8px 24px;
 }
 .developer-pic {
     width: 85px;
     height: 85px;
     padding: 4px;
+    margin: 10px 0px;
     border-radius: 100px;
     border: 1px solid rgba(0, 0, 0, 0.4);
     background-color: beige;
+    box-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
+}
+.developer > button {
+    border-radius: 8px;
+    border: 1px solid gray;
 }
