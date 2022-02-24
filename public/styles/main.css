@@ -6,3 +6,140 @@ body {
 footer {
     margin-top: 10rem;
 }
+
+/* Profile */
+
+.profile-body {
+    display: flex;
+    justify-content: flex-start;
+    margin: auto;
+    width: 900px;
+    margin-top: 50px;
+}
+
+
+.profile-pic-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 25px 35px 25px 10px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    padding: 4px;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: beige;
+    box-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
+}
+
+li:first-child:before {
+    content: '';
+}
+
+.list-horizontal {
+    padding-left: 0px;
+}
+
+.list-horizontal li {
+    display: inline-block;
+}
+
+.list-horizontal li:before {
+    content: '\00a0\2022\00a0\00a0';
+    color: #999;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 11px;
+}
+
+.list-horizontal li:first-child:before {
+    content: '';
+}
+
+sub {
+    padding-left: 2px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.fa-brands {
+    font-size: 22px;
+    padding: 0px 2px;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project {
+    margin: 0px 5px;
+}
+
+.project-header {
+    text-align: center;
+    margin: 12px 0px 4px;
+}
+
+.profile-header-left {
+    display: flex;
+    align-items: baseline;
+}
+
+hr {
+    box-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
+}
+
+.user-name {
+    margin-right: 10px;
+}
+
+.profile-header-left>i {
+    margin: 0px 0px 0px 10px;
+    font-size: 22px;
+}
+
+/* Developers */
+.developers {
+    display: flex;
+    justify-content: flex-start;
+    margin: auto;
+    width: 900px;
+    margin-top: 50px;
+}
+
+.developer {
+    width: 225px;
+    height: 250px;
+    border-radius: 12px;
+    color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    width: 175px;
+    margin: 5px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: rgba(142, 167, 192, 0.281) 0px 8px 24px;
+}
+.developer-pic {
+    width: 85px;
+    height: 85px;
+    padding: 4px;
+    margin: 10px 0px;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: beige;
+    box-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
+}
+.developer > button {
+    border-radius: 8px;
+    border: 1px solid gray;
+}

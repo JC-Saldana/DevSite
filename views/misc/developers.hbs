@@ -1,0 +1,11 @@
+<div class="developers">
+	{{#each users as |user|}}
+	<div class="developer">
+		<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="img" class="developer-pic">
+		<p><strong>{{user.name}}</strong></p>
+		<p>{{user.currentJob}}</p>
+		{{!-- <p>{{user.skills}}</p> --}}
+		<button>Contact</button>
+	</div>
+	{{/each}}
+</div>

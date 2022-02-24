@@ -47,7 +47,6 @@ const login = (req, res, next, provider) => {
         } else if (!user) {
             res.status(404).render('auth/login', { errorMessage: validations.error })
         } else {
-            console.log('entro')
             req.login(user, (loginError) => {
                 if (loginError) {
                     next(loginError)
