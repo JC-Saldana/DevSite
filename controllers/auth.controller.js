@@ -66,3 +66,8 @@ module.exports.doLoginGitHub = (req, res, next) => {
     passport.authenticate('github', { failureRedirect: '/login' })
 }
 
+module.exports.logout = (req, res, next) => {
+    req.logout();
+    res.redirect('/login');
+  }
+

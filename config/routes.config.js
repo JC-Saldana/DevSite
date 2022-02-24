@@ -16,6 +16,7 @@ router.get('/register', auth.register)
 router.post('/register', auth.doRegister)
 router.get('/login', auth.login)
 router.post('/login', auth.doLogin)
+router.get('/logout', auth.logout)
 
 //Social Login
 router.get('/auth/github', passport.authenticate('github', { scope: [ 'user:email' ] }))

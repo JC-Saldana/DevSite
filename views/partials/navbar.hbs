@@ -33,32 +33,29 @@
         </li>
       </ul>
 
-      <div class="input-group">
-        <div class="form-outline">
-          <input type="search" id="form1" class="form-control" placeholder="Search" />
-        </div>
-        <button type="button" class="btn btn-primary">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-
-      <div class="d-flex justify-content-center aling-items-center">
-        <form class="my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <div class="d-flex justify-content-start aling-items-center input-group">
+        <form class="my-2 my-lg-0 d-flex justify-content-start ">
+          <div class="form-outline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </div>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search </button>
         </form>
       </div>
 
-      <div class="navbar-nav mr-auto">
-        <a href="/register" class="nav-link">Register</a>
-        <a href="/login" class="nav-link">Login</a>
-        <a href="/user">
+        <ul class="navbar-nav">
+        {{#if currentUser }}
+          <li class="nav-item"><a class="nav-link {{active path=path match='/user'}}" aria-current="page" href="/user">{{ currentUser.email }}</a></li>
+          <li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>
+          <a href="/user">
           <div class="rounded-circle border d-flex justify-content-center align-items-center"
             style="width:50px;height:50px" alt="Avatar">
-            <i class="fas fa-user-alt fa-3x text-info"></i>
+            <img  src="{{currentUser.avatar}}"/>
           </div>
-        </a>
-      </div>
+          </a>
+        {{else}}
+          <li class="nav-item"><a class="nav-link {{active path=path match='/register'}}" aria-current="page" href="/register">Register</a></li>
+          <li class="nav-item"><a class="nav-link {{active path=path match='/login'}}" href="/login">Login</a></li>
+        {{/if}}
     </div>
   </div>
 </nav>
