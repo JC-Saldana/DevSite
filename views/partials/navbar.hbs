@@ -8,9 +8,19 @@
   </div>
   <div class="nav-right">
     <ul>
-      <li><a href="/register">Register</a></li>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/user" class="nav-user-logo"><i class="fa-solid fa-user-large"></i></a></li>
+      {{#if currentUser }}
+        <li class="nav-item"><a class="nav-link {{active path=path match='/user'}}" aria-current="page" href="/user">{{ currentUser.email }}</a></li>
+        <li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>
+        <a href="/user">
+        <div class="rounded-circle border d-flex justify-content-center align-items-center"
+          style="width:50px;height:50px" alt="Avatar">
+          <img  src="{{currentUser.avatar}}"/>
+        </div>
+        </a>
+      {{else}}
+        <li class="nav-item"><a class="nav-link {{active path=path match='/register'}}" aria-current="page" href="/register">Register</a></li>
+        <li class="nav-item"><a class="nav-link {{active path=path match='/login'}}" href="/login">Login</a></li>
+      {{/if}}
     </ul>
   </div>
 </nav>
