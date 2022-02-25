@@ -1,61 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="/">Dev Site</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/developers">Developers</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider">
-
-            </div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-
-      <div class="d-flex justify-content-start aling-items-center input-group">
-        <form class="my-2 my-lg-0 d-flex justify-content-start ">
-          <div class="form-outline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          </div>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search </button>
-        </form>
-      </div>
-
-        <ul class="navbar-nav">
-        {{#if currentUser }}
-          <li class="nav-item"><a class="nav-link {{active path=path match='/user'}}" aria-current="page" href="/user">{{ currentUser.email }}</a></li>
-          <li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>
-          <a href="/user">
-          <div class="rounded-circle border d-flex justify-content-center align-items-center"
-            style="width:50px;height:50px" alt="Avatar">
-            <img  src="{{currentUser.avatar}}"/>
-          </div>
-          </a>
-        {{else}}
-          <li class="nav-item"><a class="nav-link {{active path=path match='/register'}}" aria-current="page" href="/register">Register</a></li>
-          <li class="nav-item"><a class="nav-link {{active path=path match='/login'}}" href="/login">Login</a></li>
-        {{/if}}
-    </div>
+<nav>
+  <div class="nav-left">
+    <ul>
+      <li><a href="/"><img src="images/vertical-negro.svg" alt="logo" class="nav-logo"></a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="/developers">Developers</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <ul>
+      {{#if currentUser }}
+        <li class="nav-item"><a class="nav-link {{active path=path match='/user'}}" aria-current="page" href="/user">{{ currentUser.email }}</a></li>
+        <li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>
+        <a href="/user">
+        <div class="rounded-circle border d-flex justify-content-center align-items-center"
+          style="width:50px;height:50px" alt="Avatar">
+          <img  src="{{currentUser.avatar}}"/>
+        </div>
+        </a>
+      {{else}}
+        <li class="nav-item"><a class="nav-link {{active path=path match='/register'}}" aria-current="page" href="/register">Register</a></li>
+        <li class="nav-item"><a class="nav-link {{active path=path match='/login'}}" href="/login">Login</a></li>
+      {{/if}}
+    </ul>
   </div>
 </nav>

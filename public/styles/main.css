@@ -1,6 +1,10 @@
 body {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 }
 
 footer {
@@ -13,7 +17,7 @@ footer {
     display: flex;
     justify-content: flex-start;
     margin: auto;
-    width: 900px;
+    max-width: 900px;
     margin-top: 50px;
 }
 
@@ -110,8 +114,11 @@ hr {
 .developers {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow: auto;
     margin: auto;
-    width: 900px;
+    max-width: 900px;
+    max-height: 900px;
     margin-top: 50px;
 }
 
@@ -129,6 +136,7 @@ hr {
     align-items: center;
     box-shadow: rgba(142, 167, 192, 0.281) 0px 8px 24px;
 }
+
 .developer-pic {
     width: 85px;
     height: 85px;
@@ -139,7 +147,97 @@ hr {
     background-color: beige;
     box-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
 }
-.developer > button {
+
+.developer>button {
     border-radius: 8px;
     border: 1px solid gray;
+}
+
+/* Home */
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 900px;
+    margin-top: 0px;
+}
+
+.welcome {
+    margin: 30px 0px 0px;
+}
+.home-logo {
+    text-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
+    font-size: 140px;
+}
+
+.home-logo-text {
+    font-weight: bold;
+}
+
+/* Nav */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 1200px;
+    margin: 0px 0px 50px;
+}
+.nav-logo {
+    width: 80px;
+}
+.nav-left > ul * {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 5px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.nav-right > ul * {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 5px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+.nav-left > ul {
+    padding: 15px 0px 0px;
+}
+.nav-right > ul {
+    padding: 15px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-user-logo {
+    font-size: 38px;
+    color: black;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: auto;
+    max-width: 1200px;
+    margin-bottom: 0px;
+}
+.footer > ul * {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 5px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 0px;
+}
+.footer > ul {
+    padding: 0px;
 }
