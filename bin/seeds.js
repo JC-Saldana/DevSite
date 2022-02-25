@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const projects = require('../data/projects.json')
 const Project = require('../models/project.model');
 const User = require("../models/user.model")
+const faker = require('faker');
+
 
 require('../config/db.config');
 console.log(projects)
@@ -43,15 +45,15 @@ mongoose.connection.once('open', () => {
             const users = []
             for (let i = 0; i < 125; i++) {
                 const user = {
-                    name: getName(),
-                    email: getEmail(),
-                    password: "12345678",
-                    googleID: "-",
-                    biography: getBiography(),
-                    currentJob: getCurrentJob(),
+                    name: faker.name.findName(),
+                    email: faker.internet.email(),
+                    password: faker.internet.password(),
+                    googleID: faker.internet.password(),
+                    biography: faker.random.words(),
+                    currentJob: faker.name.jobTitle(),
                     skills: ["-"],
                     webs: ["-"],
-                    avatar: "-",
+                    avatar: faker.image.avatar(),
                     active: true,
                     activationToken: "-"
                 }
