@@ -7,24 +7,27 @@
                     <form action="/register" method="POST">
                         <div class="row">
                             <div class="col-md-6 mb-4">
-                                <input type="text" name="name" class="form-control form-control-lg"
-                                    placeholder="Full name" />
+                                <input type="text" name="name" class="form-control form-control-lg {{#if errors.name}}is-invalid{{/if}}"
+                                    placeholder="Full name" value="{{ user.name }}" />
+                                {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
                             </div>
 
                             <div class="col-md-6 mb-4">
                                 <div>
-                                    <input type="text" name="email" class="form-control form-control-lg"
-                                        placeholder="Email" />
+                                    <input type="text" name="email" class="form-control form-control-lg {{#if errors.email}}is-invalid{{/if}}"
+                                        placeholder="Email" value="{{ user.email }}" />
+                                    {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
                                 </div>
                             </div>
                         </div>
 
                         <div class="mb-4 input-group">
-                            <input type="password" name="password" class="form-control form-control-lg"
+                            <input type="password" name="password" class="form-control form-control-lg {{#if errors.password}}is-invalid{{/if}}"
                                 placeholder="Password" />
                             <button class="btn btn-outline-secondary password-toggle c-dark" type="button">
                                 <i class="fa fa-eye-slash fa-fw"></i>
                             </button>
+                            {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
                         </div>
 
                         <div class="mb-4">
