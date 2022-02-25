@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const User = require('../models/user.model')
 const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
+const mailer = require('../config/mailer.config')
 
 // register
 module.exports.register = (req, res, next) => {
@@ -21,7 +21,8 @@ module.exports.doRegister = (req, res, next) => {
                 renderWithErrors({ email: 'Email already in use' })
             } else {
                 return User.create(user)
-                    .then(() => {
+                    .then((createdUser) => {
+                        mailer.sendActivationEmail(createdUser.email, createdUser.activationToken)
                         res.redirect('/')
                     })
             }
@@ -34,6 +35,20 @@ module.exports.doRegister = (req, res, next) => {
             }
         })
 }
+
+//activation token
+module.exports.activate = (req, res, next) => {
+    const activationToken = req.params.token;
+  
+    User.findOneAndUpdate(
+      { activationToken, active: false },
+      { active: true }
+    )
+      .then(() => {
+        res.redirect('/login')
+      })
+      .catch(err => next(err))
+  }
 
 //login
 module.exports.login = (req, res, next) => {

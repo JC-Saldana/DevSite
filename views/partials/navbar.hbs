@@ -1,4 +1,4 @@
-<nav>
+<nav class="border-bottom">
   <div class="nav-left">
     <ul>
       <li><a href="/"><img src="images/vertical-negro.svg" alt="logo" class="nav-logo"></a></li>
@@ -6,15 +6,14 @@
       <li><a href="/developers">Developers</a></li>
     </ul>
   </div>
-  <div class="nav-right">
+  <div class="nav-right nabvar-nav d-flex justify-content-start">
     <ul>
       {{#if currentUser }}
-        <li class="nav-item"><a class="nav-link {{active path=path match='/user'}}" aria-current="page" href="/user">{{ currentUser.email }}</a></li>
+        <li class="nav-item"><a class="nav-link {{active path=path match='/user'}}" aria-current="page" href="/user">{{ currentUser.name }}</a></li>
         <li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>
         <a href="/user">
-        <div class="rounded-circle border d-flex justify-content-center align-items-center"
-          style="width:50px;height:50px" alt="Avatar">
-          <img  src="{{currentUser.avatar}}"/>
+        <div alt="Avatar">
+          <img class="border rounded-circle" style="width: 40px; height: 40px;" src="{{currentUser.avatar}}"/>
         </div>
         </a>
       {{else}}
