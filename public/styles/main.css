@@ -118,13 +118,14 @@ hr {
     overflow: auto;
     margin: auto;
     max-width: 900px;
-    max-height: 900px;
+    max-height: 500px;
     margin-top: 50px;
 }
 
 .developer {
     width: 225px;
     height: 250px;
+    padding: 10px;
     border-radius: 12px;
     color: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -135,6 +136,7 @@ hr {
     justify-content: flex-start;
     align-items: center;
     box-shadow: rgba(142, 167, 192, 0.281) 0px 8px 24px;
+    text-align: center;
 }
 
 .developer-pic {
@@ -145,7 +147,7 @@ hr {
     border-radius: 100px;
     border: 1px solid rgba(0, 0, 0, 0.4);
     background-color: beige;
-    box-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
+    box-shadow: rgba(107, 148, 189, 0.144) 0px 8px 24px;
 }
 
 .developer>button {
