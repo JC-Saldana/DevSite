@@ -5,29 +5,10 @@ const projects = require('../data/projects.json')
 const Project = require('../models/project.model');
 const User = require("../models/user.model")
 const faker = require('faker');
+const coolImages = require("cool-images")
 
 
 require('../config/db.config');
-console.log(projects)
-
-const getBiography = () => {
-    const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu cursus vitae congue mauris rhoncus aenean vel elit. Sociis natoque penatibus et magnis dis parturient montes nascetur."
-    return lorem
-}
-const getEmail = () => {
-    const random = Math.random()
-    return `${random}@gmail.com`
-}
-
-const getCurrentJob = () => {
-    const random = Math.random()
-    return `Job: ${random}`
-}
-
-const getName = () => {
-    const random = Math.random()
-    return `${random}`
-}
 
 mongoose.connection.once('open', () => {
     console.info(`*** Connected to the database ${mongoose.connection.db.databaseName} ***`);
@@ -53,7 +34,7 @@ mongoose.connection.once('open', () => {
                     currentJob: faker.name.jobTitle(),
                     skills: ["-"],
                     webs: ["-"],
-                    avatar: faker.image.avatar(),
+                    avatar: coolImages.one(200, 200),
                     active: true,
                     activationToken: "-"
                 }

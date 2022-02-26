@@ -8,7 +8,7 @@ const auth = require('../controllers/auth.controller')
 
 /* Misc routes */
 router.get('/', misc.home)
-router.get('/user', misc.user)
+router.get('/user/:id', misc.user)
 router.get('/developers', misc.developers)
 
 //Auth Routes
