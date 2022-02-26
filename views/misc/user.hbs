@@ -1,12 +1,12 @@
 <div>
   <div class="profile-body">
     <div class="profile-pic-container">
-      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="img" class="profile-pic">
+      <img src="{{user.avatar}}" alt="img" class="profile-pic">
     </div>
-    <div>
+    <div class="profile-pic-right">
       <div class="profile-header">
         <div class="profile-header-left">
-          <h1 class="user-name">{{currentUser.name}}</h1>
+          <h1 class="user-name">{{user.name}}</h1>
           <i class="fa-solid fa-heart"></i>
           <i class="fa-solid fa-pen-to-square"></i>
         </div>
@@ -18,11 +18,11 @@
       </div>
       <hr>
       <sub>- Bio -</sub>
-      <p>{{currentUser.biography}}</p>
+      <p>{{user.biography}}</p>
       <sub>- Mail -</sub>
-      <p>{{currentUser.email}}</p>
+      <p>{{user.email}}</p>
       <sub>- Current job -</sub>
-      <p>{{currentUser.currentJob}}</p>
+      <p>{{user.currentJob}}</p>
       <sub>- Skills -</sub>
 
       <ul class="list-horizontal">

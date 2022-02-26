@@ -19,8 +19,11 @@
   },
   "homepage": "https://github.com/JC-Saldana/DevSite#readme",
   "dependencies": {
+    "@jswork/next-random-avatar": "^1.0.3",
+    "@tdrmk/avatarmaker": "^1.0.12",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
+    "cool-images": "^1.0.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-session": "^1.17.2",

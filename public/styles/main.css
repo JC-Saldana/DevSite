@@ -20,7 +20,9 @@ footer {
     max-width: 900px;
     margin-top: 50px;
 }
-
+.profile-pic-right {
+    min-width: 600px;
+}
 
 .profile-pic-container {
     display: flex;
@@ -121,6 +123,9 @@ hr {
     max-height: 500px;
     margin-top: 50px;
 }
+.developer-container {
+    text-decoration: none;
+}
 
 .developer {
     width: 225px;
@@ -170,7 +175,7 @@ hr {
     margin: 30px 0px 0px;
 }
 .home-logo {
-    text-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
+    text-shadow: rgba(107, 148, 189, 0.411) 0px 8px 24px;
     font-size: 140px;
 }
 

@@ -5,7 +5,12 @@ module.exports.home = (req, res, next) => {
     res.render('misc/home')
 }
 module.exports.user = (req, res, next) => {
-    res.render('misc/user')
+    User.findById(req.params.id)
+        .then(user => {
+            res.render('misc/user', { user })
+        })
+
+        .catch((error) => next(error));
 }
 module.exports.developers = (req, res, next) => {
     User.find()
@@ -14,5 +19,4 @@ module.exports.developers = (req, res, next) => {
         })
 
         .catch((error) => next(error));
-
 }
