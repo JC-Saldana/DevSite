@@ -126,7 +126,7 @@ hr {
 }
 
 .welcome {
-    margin: 30px 0px 0px;
+    margin: 0px 0px 0px;
 }
 
 .home-logo {
@@ -146,7 +146,7 @@ nav {
     align-items: center;
     margin: auto;
     width: 1200px;
-    margin: 0px 0px 50px;
+    margin: 0px 0px 30px;
 }
 
 .nav-logo {
@@ -256,6 +256,35 @@ footer {
 .developer>button {
     border-radius: 8px;
     border: 1px solid gray;
+}
+
+.developers-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.developers-form input {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.form-input-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 6px;
+}
+
+.form-input-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.developers-form sub {
+    margin-bottom: 12px;
 }
 
 /* Projects */

@@ -1,3 +1,23 @@
+<form action="" method="get" class="developers-form">
+	<div class="form-input-vertical">
+		<sub>Name</sub>
+		<div class="form-input-horizontal">
+			<input id="name" type="text">
+		</div>
+	</div>
+	<div class="form-input-vertical">
+		<sub>Current job</sub>
+		<div class="form-input-horizontal">
+			<input id="currentJob" type="text">
+		</div>
+	</div>
+	<div class="form-input-vertical">
+		<sub>Skills</sub>
+		<div class="form-input-horizontal">
+			<input type="text">
+		</div>
+	</div>
+</form>
 <div class="developers">
 	{{#each users as |user|}}
 	<a href="/user/{{user.id}}" class="developer-container">
@@ -16,3 +36,5 @@
 	</a>
 	{{/each}}
 </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/axios.js"></script>

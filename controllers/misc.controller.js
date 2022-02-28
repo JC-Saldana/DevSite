@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const Project = require('../models/project.model');
 
@@ -13,6 +12,28 @@ module.exports.user = (req, res, next) => {
             res.render('misc/user', { user })
         })
 
+        .catch((error) => next(error));
+}
+
+module.exports.userForm = (req, res, next) => {
+    let nameRegex = new RegExp(req.query.name)
+    const currentJobRegex = new RegExp(req.query.currentJob)
+    console.log(nameRegex, currentJobRegex)
+    User.find({ $and: [{ 'name': { $regex: nameRegex, $options: 'i' } }, { 'currentJob': { $regex: currentJobRegex, $options: 'i' } }] })
+        .populate("projects")
+        .then(users => {
+            console.log(users.length)
+            res.json(users)
+        })
+        .catch((error) => next(error));
+}
+
+module.exports.allUsers = (req, res, next) => {
+    User.find()
+        .populate("projects")
+        .then(users => {
+            res.json(users)
+        })
         .catch((error) => next(error));
 }
 
