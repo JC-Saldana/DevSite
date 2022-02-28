@@ -1,5 +1,15 @@
 const User = require('../models/user.model')
 
 module.exports.edit = (req, res, next) => {
-    res
+    User.findById(req.params.id)
+        .then((user)=> {
+            res.render('user/editProfile', {user})
+        })
+        .catch(next)
+}
+
+module.exports.doEdit = (req, res, next) => {
+    User.findByIdAndUpdate(req.params.id, req.body, { runValidators: true, new: true })
+        .then((user) => res.redirect(`/user/${user.id}`))
+        .catch(next)
 }

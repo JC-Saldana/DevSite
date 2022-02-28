@@ -18,6 +18,7 @@ router.get('/developers', misc.developers)
 
 // User profile edit
 router.get('/user/:id/edit', user.edit)
+router.post('/user/:id/edit', user.doEdit)
 
 //Auth Routes
 router.get('/register', auth.register)
