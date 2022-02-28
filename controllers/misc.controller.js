@@ -9,7 +9,7 @@ module.exports.user = (req, res, next) => {
     User.findById(req.params.id)
         .populate("projects")
         .then(user => {
-            res.render('misc/user', { user })
+            res.render('user/profile', { user })
         })
 
         .catch((error) => next(error));
