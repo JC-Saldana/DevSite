@@ -5,6 +5,7 @@ const passport = require('passport')
 //controllers
 const misc = require('../controllers/misc.controller')
 const auth = require('../controllers/auth.controller')
+const user = require('../controllers/user.controller')
 
 /* Misc routes */
 router.get('/', misc.home)
@@ -14,6 +15,9 @@ router.get('/user/form/:params', misc.userForm)
 router.get('/project/:id', misc.projectDetails)
 router.get('/projects', misc.projects)
 router.get('/developers', misc.developers)
+
+// User profile edit
+router.get('/user/:id/edit', user.edit)
 
 //Auth Routes
 router.get('/register', auth.register)
