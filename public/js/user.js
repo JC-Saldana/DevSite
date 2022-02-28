@@ -8,17 +8,13 @@ const developersContainer = document.querySelector('.developers')
 document.addEventListener("input", () => {
   const inputName = document.querySelector('#name').value
   const currentJob = document.querySelector('#currentJob').value
+  const skill = document.querySelector('#skill').value
   const params = {
     name: inputName,
-    currentJob
+    currentJob,
+    skill
   }
-  const searchUsers = () => httpClient.get(`/user/form/${inputName}`, { params })
-    .then(devsFound => {
-      renderUsers(devsFound)
-    })
-    .catch(err => console.error(err))
-
-  const getAllUsers = () => httpClient.get(`/allUsers`)
+  const searchUsers = () => httpClient.get(`/user/form/params`, { params })
     .then(devsFound => {
       renderUsers(devsFound)
     })
@@ -56,13 +52,7 @@ document.addEventListener("input", () => {
       developersContainer.appendChild(developerHTML)
     })
   }
-
-
-  if (inputName) {
-    searchUsers()
-  } else {
-    getAllUsers()
-  }
+  searchUsers()
 })
 
 
