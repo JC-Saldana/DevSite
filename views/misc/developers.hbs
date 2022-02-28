@@ -5,6 +5,13 @@
 			<img src="{{user.avatar}}" alt="img" class="developer-pic">
 			<p><strong>{{user.name}}</strong></p>
 			<p>{{user.currentJob}}</p>
+			<ul class="list-horizontal">
+				{{#each user.skills as |skill|}}
+				<li>
+					<small>{{skill}}</small>
+				</li>
+				{{/each}}
+			</ul>
 		</div>
 	</a>
 	{{/each}}
