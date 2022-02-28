@@ -16,10 +16,13 @@ module.exports.user = (req, res, next) => {
 }
 
 module.exports.userForm = (req, res, next) => {
-    let nameRegex = new RegExp(req.query.name)
+    const nameRegex = new RegExp(req.query.name)
     const currentJobRegex = new RegExp(req.query.currentJob)
-    console.log(nameRegex, currentJobRegex)
-    User.find({ $and: [{ 'name': { $regex: nameRegex, $options: 'i' } }, { 'currentJob': { $regex: currentJobRegex, $options: 'i' } }] })
+    const skillRegex = new RegExp(req.query.skill)
+    
+    User.find({ $and: [{ 'name': { $regex: nameRegex, $options: 'i' } },
+     { 'currentJob': { $regex: currentJobRegex, $options: 'i' } },
+      { 'skills': { $regex: skillRegex, $options: 'i' } }] })
         .populate("projects")
         .then(users => {
             console.log(users.length)
