@@ -9,6 +9,8 @@ const auth = require('../controllers/auth.controller')
 /* Misc routes */
 router.get('/', misc.home)
 router.get('/user/:id', misc.user)
+router.get('/allUsers', misc.allUsers)
+router.get('/user/form/:params', misc.userForm)
 router.get('/project/:id', misc.projectDetails)
 router.get('/projects', misc.projects)
 router.get('/developers', misc.developers)
