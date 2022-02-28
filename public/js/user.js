@@ -12,17 +12,17 @@ document.addEventListener("input", () => {
     name: inputName,
     currentJob
   }
-  const searchUsers = () => httpClient.get(`/user/form/${inputName}`, {params})
+  const searchUsers = () => httpClient.get(`/user/form/${inputName}`, { params })
     .then(devsFound => {
       renderUsers(devsFound)
     })
     .catch(err => console.error(err))
 
   const getAllUsers = () => httpClient.get(`/allUsers`)
-  .then(devsFound => {
-    renderUsers(devsFound)
-  })
-  .catch(err => console.error(err))
+    .then(devsFound => {
+      renderUsers(devsFound)
+    })
+    .catch(err => console.error(err))
 
   const renderUsers = devsFound => {
     const developers = document.querySelectorAll('.developer')
@@ -33,7 +33,6 @@ document.addEventListener("input", () => {
     // Añade developers encontrados
     devsFound.data.forEach(dev => {
       const developerHTML = document.createElement("div");
-
       const skillsContainer = document.createElement("div")
       const skills = document.createElement("ul")
       skills.setAttribute("class", "list-horizontal")
@@ -45,8 +44,7 @@ document.addEventListener("input", () => {
         skills.appendChild(li)
       })
       skillsContainer.appendChild(skills)
-
-      developerHTML.innerHTML = `<a href="/user/${dev.id}" class="developer-container">
+      developerHTML.innerHTML = `<a href="/user/${dev._id}" class="developer-container">
       <div class="developer">
         <img src=${dev.avatar} alt="img" class="developer-pic">
           <p><strong>${dev.name}</strong></p>
