@@ -14,16 +14,16 @@ const projectSchema = new Schema({
     type: String,
     required: true
   },
-  owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
   skills: {
     type: [String],
     enum: ["JavaScript", "Node", "MongoDb", "Express"],
     required: true
-  }
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 }, { timestamps: true })
 
 const Project = mongoose.model('Project', projectSchema)

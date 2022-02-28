@@ -1,26 +1,28 @@
 <nav class="border-bottom">
   <div class="nav-left">
     <ul>
-      <li><a href="/"><img src="images/vertical-negro.svg" alt="logo" class="nav-logo"></a></li>
-      <li><a href="#">Projects</a></li>
+      <li><a href="/"><img src="/images/vertical-negro.svg" alt="logo" class="nav-logo"></a></li>
+      <li><a href="/projects">Projects</a></li>
       <li><a href="/developers">Developers</a></li>
     </ul>
   </div>
   <div class="nav-right nabvar-nav d-flex justify-content-start">
     <ul>
       {{#if currentUser }}
-      <li class="nav-item"><a class="nav-link {{active path=path match='/user'}}" aria-current="page" href="/user">{{
-          currentUser.name }}</a></li>
       <li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>
       <a href="/user/{{currentUser.id}}">
         <div alt="Avatar">
+          {{#if currentUser }}
           <img class="border rounded-circle" style="width: 40px; height: 40px;" src={{currentUser.avatar}} />
+          {{else}}
+          <img class="border rounded-circle" style="width: 40px; height: 40px;" src={{currentUser.avatar}} />
+          {{/if}}
         </div>
       </a>
       {{else}}
+      <li class="nav-item"><a class="nav-link {{active path=path match='/login'}}" href="/login">Login</a></li>
       <li class="nav-item"><a class="nav-link {{active path=path match='/register'}}" aria-current="page"
           href="/register">Register</a></li>
-      <li class="nav-item"><a class="nav-link {{active path=path match='/login'}}" href="/login">Login</a></li>
       {{/if}}
     </ul>
   </div>

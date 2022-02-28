@@ -1,0 +1,16 @@
+<a href="/project/{{project.id}}" class="project-container">
+	<div class="project project-details">
+		<h2><strong>{{project.title}}</strong></h2>
+		<img src="{{project.images}}" alt="img" class="project-pic project-details-pic">
+		<sub class="project-details-sub">- Description -</sub>
+		<p>{{{project.description}}}</p>
+		<sub class="project-details-sub">- Skills used -</sub>
+		<ul class="list-horizontal">
+			{{#each project.skills as |skill|}}
+			<li>
+				<small>{{skill}}</small>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</a>

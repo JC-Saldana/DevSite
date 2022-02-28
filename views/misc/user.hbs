@@ -1,50 +1,52 @@
-<div>
-  <div class="profile-body">
-    <div class="profile-pic-container">
-      <img src="{{user.avatar}}" alt="img" class="profile-pic">
+<div class="profile-body">
+  <div class="profile-pic-container">
+    <img src="{{user.avatar}}" alt="img" class="profile-pic">
+  </div>
+  <div class="profile-pic-right">
+    <div class="profile-header">
+      <div class="profile-header-left">
+        <h1 class="user-name">{{user.name}}</h1>
+        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-pen-to-square"></i>
+      </div>
+      <div>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+      </div>
     </div>
-    <div class="profile-pic-right">
-      <div class="profile-header">
-        <div class="profile-header-left">
-          <h1 class="user-name">{{user.name}}</h1>
-          <i class="fa-solid fa-heart"></i>
-          <i class="fa-solid fa-pen-to-square"></i>
-        </div>
-        <div>
-          <i class="fa-brands fa-github"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-facebook"></i>
-        </div>
-      </div>
-      <hr>
-      <sub>- Bio -</sub>
-      <p>{{user.biography}}</p>
-      <sub>- Mail -</sub>
-      <p>{{user.email}}</p>
-      <sub>- Current job -</sub>
-      <p>{{user.currentJob}}</p>
-      <sub>- Skills -</sub>
-
-      <ul class="list-horizontal">
-        {{#each currentUser.skills as |skill|}}
-        <li>
-          <small>{{skill}}</small>
-        </li>
-        {{/each}}
-      </ul>
-
-      <sub>- Projects -</sub>
-      <div class="projects">
-        {{#each currentUser.skills as |skill|}}
+    <hr>
+    <sub>- Bio -</sub>
+    <p>{{user.biography}}</p>
+    <sub>- Mail -</sub>
+    <p>{{user.email}}</p>
+    <sub>- Current job -</sub>
+    <p>{{user.currentJob}}</p>
+    <sub>- Skills -</sub>
+    <ul class="list-horizontal">
+      {{#each user.skills as |skill|}}
+      <li>
+        <small>{{skill}}</small>
+      </li>
+      {{/each}}
+    </ul>
+    <sub>- Projects -</sub>
+    <div class="projects">
+      {{#each user.projects as |project|}}
+      <a href="/project/{{project.id}}" class="project-container">
         <div class="project">
-          <a href="">
-            <p class="project-header">{{skill}}</p>
-            <img src="https://dummyimage.com/640x360/fff/aaa" alt="project"
-              style="width: 150px; border: 1px solid black">
-          </a>
+          <img src="{{project.images}}" alt="img" class="project-pic">
+          <p><strong>{{project.title}}</strong></p>
+          <ul class="list-horizontal">
+            {{#each project.skills as |skill|}}
+            <li>
+              <small>{{skill}}</small>
+            </li>
+            {{/each}}
+          </ul>
         </div>
-        {{/each}}
-      </div>
+      </a>
+      {{/each}}
     </div>
   </div>
 </div>
