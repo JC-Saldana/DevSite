@@ -39,7 +39,7 @@ module.exports.doRegister = (req, res, next) => {
 //activation token
 module.exports.activate = (req, res, next) => {
     const activationToken = req.params.token;
-  
+    
     User.findOneAndUpdate(
       { activationToken, active: false },
       { active: true }
@@ -85,4 +85,8 @@ module.exports.logout = (req, res, next) => {
     req.logout();
     res.redirect('/login');
   }
+
+module.exports.doLoginGoogle = (req, res, next) => {
+  login(req, res, next, 'google-auth')
+}
 
