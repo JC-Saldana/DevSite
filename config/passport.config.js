@@ -2,6 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const GitHubStrategy = require('passport-github2').Strategy;
 const mongoose = require('mongoose')
+const GoogleStrategy = require('passport-google-oauth20').Strategy
 
 const User = require('../models/user.model');
 
@@ -69,38 +70,45 @@ passport.use('github', new GitHubStrategy({
   }
 ));
 
-/* 
-passport.use('github', new GitHubStrategy(
-  {
-  clientID: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: "http://localhost:3000/auth/github/callback"
-  },
-  (accessToken, refreshToken, profile, done) => {
-    console.log({profile});
+// passport google-login
 
-    const name = profile.displayName
-    const githubId= profile.id
+passport.use('google-auth', new GoogleStrategy({
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: '/auth/google/callback'
+},
+(accessToken, refreshToken, profile, next) => {
+  console.log({ profile });
 
-    if(githubId) {
-      User.findOne({githubId})
-        .then(user => {
-          if (user) {
-            next(null, user)
-          } else {
-            return User.create({
-              name,
-              githubId,
-              password: mongoose.Types.ObjectId() 
+  const googleID = profile.id;
+  const email = profile.emails[0] ? profile.emails[0].value : undefined;
+  const name = profile.displayName;
+
+  if (googleID && email) {
+    User.findOne({
+      $or: [
+        { googleID },
+        { email }
+      ]
+    })
+      .then(user => {
+        if (user) {
+          next(null, user)
+        } else {
+          return User.create({
+            email,
+            googleID,
+            password: mongoose.Types.ObjectId(),
+            name
+          })
+            .then(createdUser => {
+              next(null, createdUser)
             })
-              .then(createdUser => {
-                next(null, createdUser)
-              })
-          }
-        })
-        .catch(next)
-    } else {
-      next(null, false, { error: 'Error connecting to Git Hub Auth' })
-    }
+        }
+      })
+      .catch(err => next(err))
+  } else {
+    next(null, false, { error: 'Error connecting to Google Auth' })
   }
-)) */
+}
+))

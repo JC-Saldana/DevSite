@@ -2,6 +2,12 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 
+//scopes for google login
+const SCOPES = [
+  "https://www.googleapis.com/auth/userinfo.profile",
+  "https://www.googleapis.com/auth/userinfo.email"
+]
+
 //controllers
 const misc = require('../controllers/misc.controller')
 const auth = require('../controllers/auth.controller')
@@ -36,5 +42,11 @@ router.get('/auth/github/callback',
     res.redirect('/');
   }
   );
+
+//google auth
+router.get('/login/google', passport.authenticate('google-auth', { scope: SCOPES  }))
+router.get('/auth/google/callback', auth.doLoginGoogle)
+
+
 
 module.exports = router
