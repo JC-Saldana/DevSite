@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
-const upload = require('../config/storage.config');
+
+const upload = require('../config/storage.config')
 
 //scopes for google login
 const SCOPES = [

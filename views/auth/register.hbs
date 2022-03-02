@@ -5,11 +5,11 @@
                 <div class="card-body p-4 p-md-5">
                     <img src="/images/horizontal-negro.svg" alt="logo">
                     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Register</h3>
-                    <form action="/register" method="POST">
+                    <form action="/register" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <input type="text" name="name" class="form-control form-control-lg {{#if errors.name}}is-invalid{{/if}}"
-                                    placeholder="Full name" value="{{ user.name }}" />
+                                    placeholder="Full name" value="{{ user.name }}"/>
                                 {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
                             </div>
 
