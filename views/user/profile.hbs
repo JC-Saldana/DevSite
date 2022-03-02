@@ -1,15 +1,17 @@
 <div class="profile-body">
   <div class="profile-pic-container">
     <img src="{{user.avatar}}" alt="img" class="profile-pic">
+      <div>
+        <p class="mt-4"> <small>Follow 0 - Following 1</small> </p>
+      </div>
   </div>
   <div class="profile-pic-right">
     <div class="profile-header">
       <div class="profile-header-left">
         <h1 class="user-name">{{user.name}}</h1>
-        <i class="fa-solid fa-heart"></i>
 
-        <a href="/user/{{user._id}}/edit">
-          <i class="fa-solid fa-pen-to-square"></i>
+        <a href="/user/{{user._id}}/edit" style="text-decoration: none; color:black">
+          <i class="fa-solid fa-pen-to-square" style="font-size: 27px;"></i>
         </a>
 
       </div>

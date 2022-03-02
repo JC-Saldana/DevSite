@@ -4,7 +4,7 @@
             <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                 <div class="card-body p-4 p-md-5">
                     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Edit profile</h3>
-                    <form action="/user/{{user._id}}/edit" method="POST" enctype="multipart/form-data"> {{!-- APUNTAR A EDIT --}}
+                    <form action="/user/{{user._id}}/edit" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <input type="text" name="name" class="form-control form-control-lg {{#if errors.name}}is-invalid{{/if}}"

@@ -28,7 +28,8 @@ footer {
 
 .profile-pic-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-content: center;
     padding: 25px 35px 25px 10px;
 }
