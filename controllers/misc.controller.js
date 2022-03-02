@@ -34,15 +34,13 @@ module.exports.userForm = (req, res, next) => {
 module.exports.projectForm = (req, res, next) => {
     const titleRegex = new RegExp(req.query.title)
     const skillRegex = new RegExp(req.query.skill)
-    console.log(req.query, titleRegex, skillRegex)
     Project.find({
         $and: [{ 'title': { $regex: titleRegex, $options: 'i' } },
         { 'skills': { $regex: skillRegex, $options: 'i' } }]
     })
         .populate("user")
-        .then(users => {
-            console.log(users.length)
-            res.json(users)
+        .then(projects => {
+            res.json(projects)
         })
         .catch((error) => next(error));
 }
