@@ -82,3 +82,9 @@ module.exports.developers = (req, res, next) => {
 
         .catch((error) => next(error));
 }
+
+
+module.exports.createProject = ( req, res, next) => {
+    res.render('misc/createProyect')
+}
+
