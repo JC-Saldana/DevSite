@@ -1,6 +1,7 @@
 <a href="/project/{{project.id}}" class="project-container">
 	<div class="project project-details">
-		<h2><strong>{{project.title}}</strong></h2>
+		<h2 class="project-title"><strong>{{project.title}}</strong></h2>
+		<p><sub>by {{project.user.name}}</sub></p>
 		<img src="{{project.images}}" alt="img" class="project-pic project-details-pic">
 		<sub class="project-details-sub">- Description -</sub>
 		<p>{{{project.description}}}</p>

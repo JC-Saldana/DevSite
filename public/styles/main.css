@@ -92,6 +92,10 @@ sub {
     margin: 0px 5px;
 }
 
+.project-title {
+    margin-bottom: 0px;
+}
+
 .project-header {
     text-align: center;
     margin: 12px 0px 4px;

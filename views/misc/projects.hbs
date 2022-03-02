@@ -17,7 +17,8 @@
 	<a href="/project/{{project.id}}" class="project-container">
 		<div class="project">
 			<img src="{{project.images}}" alt="img" class="project-pic">
-			<p><strong>{{project.title}}</strong></p>
+			<p class="project-title"><strong>{{project.title}}</strong></p>
+			<p><sub>by {{project.user.name}}</sub></p>
 			<ul class="list-horizontal">
 				{{#each project.skills as |skill|}}
 				<li>
