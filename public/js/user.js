@@ -3,7 +3,6 @@ const httpClient = axios.create({
 })
 
 // Search users form
-const devsForm = document.querySelector('.developers-form')
 const developersContainer = document.querySelector('.developers')
 document.addEventListener("input", () => {
   const inputName = document.querySelector('#name').value
