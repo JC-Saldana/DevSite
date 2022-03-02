@@ -41,7 +41,8 @@ document.addEventListener("input", () => {
       `<a href="/project/${project._id}" class="project-container">
         <div class="project">
         <img src="${project.images}" alt="img" class="project-pic">
-        <p><strong>${project.title}</strong></p>
+        <p class="project-title"><strong>${project.title}</strong></p>
+        <p><sub>by${project.user.name}</sub></p>
         ${skillsContainer.innerHTML}
         </div>
       </a>`

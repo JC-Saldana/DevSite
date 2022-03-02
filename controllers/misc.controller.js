@@ -56,6 +56,7 @@ module.exports.allUsers = (req, res, next) => {
 
 module.exports.projects = (req, res, next) => {
     Project.find()
+        .populate("user")
         .then(projects => {
             res.render('misc/projects', { projects })
         })
@@ -65,6 +66,7 @@ module.exports.projects = (req, res, next) => {
 
 module.exports.projectDetails = (req, res, next) => {
     Project.findById(req.params.id)
+        .populate("user")
         .then(project => {
             res.render('misc/project-details', { project })
         })
