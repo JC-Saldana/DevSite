@@ -20,11 +20,14 @@ module.exports.doRegister = (req, res, next) => {
             if (userFound) {
                 renderWithErrors({ email: 'Email already in use' })
             } else {
+                if (req.file) {
+                    user.avatar = req.file.path
+                  }
                 return User.create(user)
-                    .then((createdUser) => {
-                        mailer.sendActivationEmail(createdUser.email, createdUser.activationToken)
-                        res.redirect('/')
-                    })
+                .then((createdUser) => {
+                    mailer.sendActivationEmail(createdUser.email, createdUser.activationToken)
+                    res.redirect('/')
+                })
             }
         })
         .catch(err => {

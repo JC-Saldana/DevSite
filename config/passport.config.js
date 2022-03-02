@@ -58,6 +58,7 @@ passport.use('github', new GitHubStrategy({
             name: profile.displayName,
             email: profile.email || 'fakeemail@email.com',
             password: 'xdjkcnbekcbnkencjke',
+            active: true,
             githubId: profile.id
            })
            .then((user) => done(null, user))
@@ -99,6 +100,7 @@ passport.use('google-auth', new GoogleStrategy({
             email,
             googleID,
             password: mongoose.Types.ObjectId(),
+            active: true,
             name
           })
             .then(createdUser => {
