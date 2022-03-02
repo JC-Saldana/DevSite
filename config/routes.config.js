@@ -25,6 +25,11 @@ router.get('/projects', misc.projects)
 router.get('/project/form/params', misc.projectForm)
 router.get('/developers', misc.developers)
 
+//project
+router.get('/create/project', misc.createProject)
+router.post('/create/project', misc.createProject)
+
+
 // User profile edit
 router.get('/user/:id/edit', user.edit)
 router.post('/user/:id/edit', upload.single('avatar'), user.doEdit)

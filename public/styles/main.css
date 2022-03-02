@@ -191,6 +191,11 @@ nav {
     color: black;
 }
 
+.add-project {
+    background-color: #F6F5F5;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
 /* Footer */
 
 footer {

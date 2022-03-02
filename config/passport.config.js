@@ -79,11 +79,12 @@ passport.use('google-auth', new GoogleStrategy({
   callbackURL: '/auth/google/callback'
 },
 (accessToken, refreshToken, profile, next) => {
-  console.log({ profile });
+   console.log({ profile }); 
 
   const googleID = profile.id;
   const email = profile.emails[0] ? profile.emails[0].value : undefined;
   const name = profile.displayName;
+  const avatar = profile.picture;
 
   if (googleID && email) {
     User.findOne({
@@ -101,7 +102,8 @@ passport.use('google-auth', new GoogleStrategy({
             googleID,
             password: mongoose.Types.ObjectId(),
             active: true,
-            name
+            name, 
+            avatar: avatar,
           })
             .then(createdUser => {
               next(null, createdUser)
