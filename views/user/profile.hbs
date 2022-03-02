@@ -1,19 +1,19 @@
 <div class="profile-body">
   <div class="profile-pic-container">
     <img src="{{user.avatar}}" alt="img" class="profile-pic">
-      <div>
-        <p class="mt-4"> <small>Follow 0 - Following 1</small> </p>
-      </div>
+    <div>
+      <p class="mt-4"> <small>Follow 0 - Following 1</small> </p>
+    </div>
   </div>
   <div class="profile-pic-right">
     <div class="profile-header">
       <div class="profile-header-left">
         <h1 class="user-name">{{user.name}}</h1>
-
+        {{#if (isMyProfile userName=user.name currentUserName=currentUser.name)}}
         <a href="/user/{{user._id}}/edit" style="text-decoration: none; color:black">
           <i class="fa-solid fa-pen-to-square" style="font-size: 27px;"></i>
         </a>
-
+        {{/if}}
       </div>
       <div>
         <i class="fa-brands fa-github"></i>
