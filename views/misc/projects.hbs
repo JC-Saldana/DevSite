@@ -1,3 +1,17 @@
+<form action="" method="get" class="developers-form">
+	<div class="form-input-vertical">
+		<sub>Title</sub>
+		<div class="form-input-horizontal">
+			<input id="title" type="text">
+		</div>
+	</div>
+	<div class="form-input-vertical">
+		<sub>Skill</sub>
+		<div class="form-input-horizontal">
+			<input id="skill" type="text">
+		</div>
+	</div>
+</form>
 <div class="projects">
 	{{#each projects as |project|}}
 	<a href="/project/{{project.id}}" class="project-container">
@@ -15,3 +29,5 @@
 	</a>
 	{{/each}}
 </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/project.js"></script>

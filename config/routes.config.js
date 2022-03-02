@@ -22,6 +22,7 @@ router.get('/allUsers', misc.allUsers)
 router.get('/user/form/params', misc.userForm)
 router.get('/project/:id', misc.projectDetails)
 router.get('/projects', misc.projects)
+router.get('/project/form/params', misc.projectForm)
 router.get('/developers', misc.developers)
 
 // User profile edit
