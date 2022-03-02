@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
+const upload = require('../config/storage.config');
 
 //scopes for google login
 const SCOPES = [
@@ -24,11 +25,11 @@ router.get('/developers', misc.developers)
 
 // User profile edit
 router.get('/user/:id/edit', user.edit)
-router.post('/user/:id/edit', user.doEdit)
+router.post('/user/:id/edit', upload.single('avatar'), user.doEdit)
 
 //Auth Routes
 router.get('/register', auth.register)
-router.post('/register', auth.doRegister)
+router.post('/register', upload.single('avatar'), auth.doRegister)
 router.get('/activate/:token', auth.activate)
 router.get('/login', auth.login)
 router.post('/login', auth.doLogin)

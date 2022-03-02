@@ -13,7 +13,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: 'ironhack/dev-site',
+    folder: 'dev-site',
     allowed_formats: ['jpg', 'png']
   }
 })
