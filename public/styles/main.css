@@ -12,6 +12,15 @@ footer {
     padding: 20px 0px 0px;
 }
 
+/* Icons */
+.fa-solid {
+    font-size: 24px;
+    color: black;
+}
+.fa-solid:hover {
+    cursor: pointer;
+}
+
 /* Profile */
 
 .profile-body {
@@ -196,6 +205,7 @@ nav {
     border-radius: 5px;
     padding: 0.5rem;
 }
+
 /* Footer */
 
 footer {
@@ -357,4 +367,8 @@ footer {
 
 .project-details-sub {
     margin-bottom: 12px;
+}
+
+.icon-liked {
+    color: red;
 }

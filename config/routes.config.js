@@ -14,25 +14,27 @@ const SCOPES = [
 const misc = require('../controllers/misc.controller')
 const auth = require('../controllers/auth.controller')
 const user = require('../controllers/user.controller')
+const project = require('../controllers/project.controller')
 
-/* Misc routes */
+// Misc
+
 router.get('/', misc.home)
-router.get('/user/:id', misc.user)
-router.get('/allUsers', misc.allUsers)
-router.get('/user/form/params', misc.userForm)
-router.get('/project/:id', misc.projectDetails)
-router.get('/projects', misc.projects)
-router.get('/project/form/params', misc.projectForm)
-router.get('/developers', misc.developers)
 
-//project
-router.get('/create/project', misc.createProject)
-router.post('/create/project', misc.createProject)
-
-
-// User profile edit
+// User
+router.get('/user/:id', user.user)
+router.get('/allUsers', user.allUsers)
+router.get('/user/form/params', user.userForm)
+router.get('/developers', user.developers)
+router.post('/like/:id', /* authMiddleware.isAuthenticated, */ user.doLike)
 router.get('/user/:id/edit', user.edit)
 router.post('/user/:id/edit', upload.single('avatar'), user.doEdit)
+
+// Project
+router.get('/project/:id', project.projectDetails)
+router.get('/projects', project.projects)
+router.get('/project/form/params', project.projectForm)
+router.get('/create/project', project.createProject)
+router.post('/create/project', project.createProject)
 
 //Auth Routes
 router.get('/register', auth.register)
