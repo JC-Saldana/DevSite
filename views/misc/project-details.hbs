@@ -1,17 +1,20 @@
-<a href="/project/{{project.id}}" class="project-container">
-	<div class="project project-details">
-		<h2 class="project-title"><strong>{{project.title}}</strong></h2>
-		<p><sub>by {{project.user.name}}</sub></p>
-		<img src="{{project.images}}" alt="img" class="project-pic project-details-pic">
-		<sub class="project-details-sub">- Description -</sub>
-		<p>{{{project.description}}}</p>
-		<sub class="project-details-sub">- Skills used -</sub>
-		<ul class="list-horizontal">
-			{{#each project.skills as |skill|}}
-			<li>
-				<small>{{skill}}</small>
-			</li>
-			{{/each}}
-		</ul>
-	</div>
-</a>
+<div class="project project-details">
+	<h2 class="project-title"><strong>{{project.title}}</strong></h2>
+	<p><sub>by {{project.user.name}}</sub></p>
+	<img src="{{project.images}}" alt="img" class="project-pic project-details-pic">
+	<sub class="project-details-sub">- Description -</sub>
+	<p>{{{project.description}}}</p>
+	<sub class="project-details-sub">- Skills used -</sub>
+	<ul class="list-horizontal">
+		{{#each project.skills as |skill|}}
+		<li>
+			<small>{{skill}}</small>
+		</li>
+		{{/each}}
+	</ul>
+	<i data-id="{{project.id}}"
+		class="like-action fa-solid fa-heart {{#if liked}}icon-liked{{/if}}">
+	</i>
+	
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/axios.js"></script>
