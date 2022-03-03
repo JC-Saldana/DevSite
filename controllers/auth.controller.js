@@ -58,6 +58,10 @@ module.exports.login = (req, res, next) => {
     res.render('auth/login')
 }
 
+module.exports.loginSelection = (req, res, next) => {
+    res.render('auth/loginSelection')
+}
+
 const login = (req, res, next, provider) => {
     passport.authenticate(provider || 'local-auth', (err, user, validations) => {
         if (err) {
@@ -86,7 +90,7 @@ module.exports.doLoginGitHub = (req, res, next) => {
 
 module.exports.logout = (req, res, next) => {
     req.logout();
-    res.redirect('/login');
+    res.redirect('/loginSelection');
   }
 
 module.exports.doLoginGoogle = (req, res, next) => {

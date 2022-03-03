@@ -39,7 +39,7 @@ document.addEventListener("input", () => {
       skillsContainer.appendChild(skills)
       projectHTML.innerHTML = 
       `<a href="/project/${project._id}" class="project-container">
-        <div class="project">
+        <div class="project fade-in scale-up-center">
         <img src="${project.images}" alt="img" class="project-pic">
         <p class="project-title"><strong>${project.title}</strong></p>
         <p><sub>by${project.user.name}</sub></p>

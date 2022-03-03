@@ -41,6 +41,7 @@ router.get('/register', auth.register)
 router.post('/register', upload.single('avatar'), auth.doRegister)
 router.get('/activate/:token', auth.activate)
 router.get('/login', auth.login)
+router.get('/loginSelection', auth.loginSelection)
 router.post('/login', auth.doLogin)
 router.get('/logout', auth.logout)
 
