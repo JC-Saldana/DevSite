@@ -40,7 +40,7 @@ document.addEventListener("input", () => {
       })
       skillsContainer.appendChild(skills)
       developerHTML.innerHTML = `<a href="/user/${dev._id}" class="developer-container">
-      <div class="developer">
+      <div class="developer fade-in scale-up-center">
         <img src=${dev.avatar} alt="img" class="developer-pic">
           <p><strong>${dev.name}</strong></p>
           <p>${dev.currentJob}</p>

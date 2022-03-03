@@ -1,4 +1,4 @@
-<div class="project project-details">
+<div class="project project-details scale-up-center">
 	<h2 class="project-title"><strong>{{project.title}}</strong></h2>
 	<p><sub>by {{project.user.name}}</sub></p>
 	<img src="{{project.images}}" alt="img" class="project-pic project-details-pic">
@@ -12,9 +12,9 @@
 		</li>
 		{{/each}}
 	</ul>
-	<i data-id="{{project.id}}"
-		class="like-action fa-solid fa-heart {{#if liked}}icon-liked{{/if}}">
+	<i data-id="{{project.id}}" class="like-action fa-solid fa-heart {{#if liked}}icon-liked{{/if}}">
 	</i>
-	
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/axios.js"></script>

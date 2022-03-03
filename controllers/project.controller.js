@@ -15,14 +15,12 @@ module.exports.projectDetails = (req, res, next) => {
     Project.findById(req.params.id)
         .populate("user")
         .then(project => {
-            console.log("liked", req.user._id, project._id)
             Like.findOne({ $and: [{ user: req.user._id }, { project: project._id }] })
                 .then(liked => {
-                    console.log("liked", liked)
+                    console.log("4here", liked)
                     res.render('misc/project-details', { project, liked })
                 })
         })
-
         .catch((error) => next(error));
 }
 
