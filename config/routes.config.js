@@ -34,7 +34,7 @@ router.get('/project/:id', project.projectDetails)
 router.get('/projects', project.projects)
 router.get('/project/form/params', project.projectForm)
 router.get('/create/project', project.createProject)
-router.post('/create/project', project.createProject)
+router.post('/projects', upload.single('images'), project.doCreateProject)
 
 //Auth Routes
 router.get('/register', auth.register)

@@ -1,19 +1,37 @@
 <script src="https://cdn.tiny.cloud/1/tz1i6w9ceg9fdj6gffn3qptanjx01mzw0pdbp5g0grdv2v0g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<h2 class="mb-4">Take your time for this</h2>
- <form action="/project/create" method="POST" enctype="multipart/form-data">
+<h2 class="mb-4">Create project</h2>
+ <form action="/projects" method="POST" enctype="multipart/form-data">
 
-    <div>
-        <label for="titlee" class="form-label">Title of your project</label>
+    <div class="form-group ">
+        <label for="title" class="form-label">Title of your project</label>
         <input name="title" type="text" class="form-control mb-4" placeholder="Project Name" >
     </div>
-        <label for="portada" class="form-label">Image for your project</label>
-        <input name="" type="file" class="form-control mb-4">
-    <div class="mb-4">
-        <label for="description"></label>
-        <textarea class="form-control" id="project" name="description" placeholder="Aquí va la descripción de tu proyecto" rows="25"></textarea>
+
+    <div class="mb-4 form-group ">
+        <label for="images" class="form-label">Image for your project</label>
+        <input name="images" type="file" class="form-control">
     </div>
-    <button class="btn btn-primary">Create project</button>
+        
+    <div class="mb-4 form-group ">
+        <label for="description">Description about your project</label>
+        <textarea class="form-control" id="project" name="description" placeholder="Project description"></textarea>
+    </div>
+    <div class="mb-4 form-group">
+        <label for="skills" class="form-label">Your kills</label>
+        <select name="skills" class="form-select" multiple>
+            <option value="javascript">JavaScript</option>
+            <option value="ruby">Ruby</option>
+            <option value="go">Go</option>
+            <option value="java">Java</option>
+            <option value="python">Python</option>
+            <option value="c">C</option>
+            <option value="c++">C++</option>
+            <option value="typescript">TypeScript</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create project</button>
  
  </form>
 

@@ -8,7 +8,7 @@ const projectSchema = new Schema({
   },
   images: {
     type: [String],
-    required: [true, 'At least one image is required']
+   /*  required: [true, 'At least one image is required'] */
   },
   description: {
     type: String,
@@ -16,13 +16,13 @@ const projectSchema = new Schema({
   },
   skills: {
     type: [String],
-    enum: ["JavaScript", "Node", "MongoDb", "Express"],
-    required: true
+    enum: ["javascript", "node", "mongoDb", "express", "typescript", "go", "ruby", "python", "c", "c++", "java" ],
+/*     required: true */
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true,
+/*     required: true, */
   },
 }, { timestamps: true })
 
