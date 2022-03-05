@@ -16,5 +16,17 @@
 	</i>
 </div>
 
+{{!-- Comment --}}
+<div class="d-flex flex-row add-comment-section mt-4 mb-4">
+	<img class="img-fluid img-responsive rounded-circle mr-2 m-2" src="{{currentUser.avatar}}" width="50">
+	<input type="text" class="form-control mr-3" placeholder="Add comment">
+</div>
+	<button class="btn btn-primary" type="button">Comment</button>
+
+{{#each project.comments as |comment|}}
+	{{comment.user.name}}
+	{{comment.comment}}
+{{/each}}
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/axios.js"></script>

@@ -26,5 +26,12 @@ const projectSchema = new Schema({
   },
 }, { timestamps: true })
 
+projectSchema.virtual('comments', {
+  ref: "Comment",
+  localField: "_id",
+  foreignField: "project",
+  justOne: false
+})
+
 const Project = mongoose.model('Project', projectSchema)
 module.exports = Project
