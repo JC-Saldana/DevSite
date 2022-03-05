@@ -1,1 +1,36 @@
-<h2>Hi! I'm a creation project page</h2>
+<script src="https://cdn.tiny.cloud/1/tz1i6w9ceg9fdj6gffn3qptanjx01mzw0pdbp5g0grdv2v0g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<h2 class="mb-4">Take your time for this</h2>
+ <form action="/project/create" method="POST" enctype="multipart/form-data">
+
+    <div>
+        <label for="titlee" class="form-label">Title of your project</label>
+        <input name="title" type="text" class="form-control mb-4" placeholder="Project Name" >
+    </div>
+        <label for="portada" class="form-label">Image for your project</label>
+        <input name="" type="file" class="form-control mb-4">
+    <div class="mb-4">
+        <label for="description"></label>
+        <textarea class="form-control" id="project" name="description" placeholder="Aquí va la descripción de tu proyecto" rows="25"></textarea>
+    </div>
+    <button class="btn btn-primary">Create project</button>
+ 
+ </form>
+
+<script>
+tinymce.init({
+  selector: 'textarea#project',
+  height: 500,
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table paste code help wordcount'
+  ],
+  toolbar: 'undo redo | formatselect | ' +
+  'bold italic backcolor | alignleft aligncenter ' +
+  'alignright alignjustify | bullist numlist outdent indent | ' +
+  'removeformat | help',
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+});
+</script>
