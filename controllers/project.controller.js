@@ -1,5 +1,6 @@
 const Project = require('../models/project.model')
 const Like = require('../models/like.model')
+const mongoose = require('mongoose')
 
 module.exports.projects = (req, res, next) => {
     Project.find()
@@ -26,6 +27,24 @@ module.exports.projectDetails = (req, res, next) => {
 
 module.exports.createProject = (req, res, next) => {
     res.render('misc/createProyect')
+}
+
+module.exports.doCreateProject = (req, res, next) => {
+    if (req.file) {
+        req.body.images = req.file.path
+      }
+    Project.create(req.body)
+        .then(() => res.redirect('/projects'))
+        .catch((error) => {
+            console.log(error)
+            if (error instanceof mongoose.Error.ValidationError) {
+            res.render('misc/createProyect', {
+                errors: error.errors,
+            });
+            } else {
+            next(error)
+            }
+        })
 }
 
 module.exports.projectForm = (req, res, next) => {

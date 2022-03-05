@@ -59,6 +59,20 @@ main {
     box-shadow: rgba(107, 148, 189, 0.425) 0px 8px 24px;
 }
 
+.add-project {
+    background-color: #F6F5F5;
+    border-radius: 5px;
+    padding: 0.5rem;
+    max-width: 15rem;
+}
+.add-project a {
+    text-decoration: none;
+    color: #1d1d1d;
+}
+.add-project i {
+    font-size: 1rem;
+}
+
 li:first-child:before {
     content: '';
 }
