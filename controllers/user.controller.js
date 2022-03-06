@@ -95,7 +95,7 @@ module.exports.doLike = (req, res, next) => {
   }
 
   module.exports.deleteComment = (req, res, next) => {
-    const projectId = req.params.id
+    const projectId = req.body.id
     console.log(projectId)
     
         Comment.findByIdAndDelete(req.params.id)
