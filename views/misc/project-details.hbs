@@ -17,16 +17,28 @@
 </div>
 
 {{!-- Comment --}}
-<div class="d-flex flex-row add-comment-section mt-4 mb-4">
-	<img class="img-fluid img-responsive rounded-circle mr-2 m-2" src="{{currentUser.avatar}}" width="50">
-	<input type="text" class="form-control mr-3" placeholder="Add comment">
+<div class="rounded p-3 mt-4" style="background-color: rgb(250, 250, 250);">
+	<form action="" method="POST">
+			<div class="d-flex flex-row add-comment-section mt-4">
+		<img class="img-fluid img-responsive rounded-circle mr-2 m-2" src="{{currentUser.avatar}}" width="50">
+		<input type="text" class="form-control mr-3" placeholder="Add comment">
+	</div>
+	<div class="d-flex justify-content-end mt-2">
+		<button class="btn btn-secondary" type="button">Comment</button>
+	</div>
+	</form>
 </div>
-	<button class="btn btn-primary" type="button">Comment</button>
 
-{{#each project.comments as |comment|}}
-	{{comment.user.name}}
-	{{comment.comment}}
-{{/each}}
+
+<hr>
+
+<div>
+	{{#each project.comments as |comment|}}
+		{{comment.user.name}}
+		{{comment.comment}}
+	{{/each}}
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/axios.js"></script>
