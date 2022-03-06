@@ -24,13 +24,13 @@
       </div>
     </div>
     <hr>
-    <sub>- Bio -</sub>
+    <sub>Biography</sub>
     <p>{{user.biography}}</p>
-    <sub>- Mail -</sub>
+    <sub>Mail</sub>
     <p>{{user.email}}</p>
-    <sub>- Current job -</sub>
+    <sub>Current job</sub>
     <p>{{user.currentJob}}</p>
-    <sub>- Skills -</sub>
+    <sub>Skills</sub>
     <ul class="list-horizontal">
       {{#each user.skills as |skill|}}
       <li>
@@ -38,7 +38,7 @@
       </li>
       {{/each}}
     </ul>
-    <sub>- Projects -</sub>
+    <sub>Projects</sub>
     {{#if currentUser }}
       <div class="add-project my-4">
         <a href="/create/project">
