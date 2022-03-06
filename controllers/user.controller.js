@@ -90,8 +90,15 @@ module.exports.doLike = (req, res, next) => {
         comment: comment,
         project: projectId
     })
-    .then(() => {
-        res.redirect(`/project/${projectId}`)
-    })
+    .then(() => res.redirect(`/project/${projectId}`))
     .catch(next)
+  }
+
+  module.exports.deleteComment = (req, res, next) => {
+    const projectId = req.params.id
+    console.log(projectId)
+    
+        Comment.findByIdAndDelete(req.params.id)
+            .then(() => res.redirect(`/project/${projectId}`))
+            .catch(next)
   }
