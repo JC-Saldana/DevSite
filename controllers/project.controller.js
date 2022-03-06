@@ -13,7 +13,8 @@ module.exports.projects = (req, res, next) => {
         .catch((error) => next(error));
 }
 
-/* module.exports.projectDetails = (req, res, next) => {
+/* VERSION ANTERIOR A AÑADIR COMENTARIOS 
+module.exports.projectDetails = (req, res, next) => {
     Project.findById(req.params.id)
         .populate("user")
         .then(project => {
@@ -26,18 +27,18 @@ module.exports.projects = (req, res, next) => {
         .catch((error) => next(error));
 } */
 module.exports.projectDetails = (req, res, next) => {
+
     Project.findById(req.params.id)
         .populate({
             path: 'comments',
             populate: {
-                path: 'user',
-                model: 'User'
+                path: 'user'
             }
         })
         .then(project => {
             Like.findOne({ $and: [{ user: req.user._id }, { project: project._id }] })
                 .then(liked => {
-                    console.log("4here", liked)
+/*                     console.log("4here", liked) */
                     res.render('misc/project-details', { project, liked })
                 })
         })

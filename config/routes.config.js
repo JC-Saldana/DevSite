@@ -28,6 +28,8 @@ router.get('/developers', user.developers)
 router.post('/like/:id', /* authMiddleware.isAuthenticated, */ user.doLike)
 router.get('/user/:id/edit', user.edit)
 router.post('/user/:id/edit', upload.single('avatar'), user.doEdit)
+//comment
+router.post('/comment/:id', user.doComment )
 
 // Project
 router.get('/project/:id', project.projectDetails)

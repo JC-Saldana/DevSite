@@ -1,5 +1,6 @@
 const User = require('../models/user.model')
 const Like = require('../models/like.model')
+const Comment = require('../models/comment.model')
 
 module.exports.edit = (req, res, next) => {
     User.findById(req.params.id)
@@ -77,4 +78,20 @@ module.exports.doLike = (req, res, next) => {
         }
       })
       .catch(next)
+  }
+
+  module.exports.doComment = (req, res, next) => {
+    const user = req.user;
+    const comment = req.body.comment
+    const projectId = req.params.id
+
+    Comment.create({
+        user: user,
+        comment: comment,
+        project: projectId
+    })
+    .then(() => {
+        res.redirect(`/project/${projectId}`)
+    })
+    .catch(next)
   }
