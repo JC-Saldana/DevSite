@@ -1,13 +1,13 @@
 /* General animations */
-.scale-up-center {
+.scale-up-center:hover {
     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 @-webkit-keyframes scale-up-center {
     0% {
-        -webkit-transform: scale(0.7);
-        transform: scale(0.7);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
     }
 
     100% {
@@ -18,8 +18,8 @@
 
 @keyframes scale-up-center {
     0% {
-        -webkit-transform: scale(0.7);
-        transform: scale(0.7);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
     }
 
     100% {
@@ -27,7 +27,6 @@
         transform: scale(1);
     }
 }
-
 
 .fade-in {
     -webkit-animation: fade-in 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
