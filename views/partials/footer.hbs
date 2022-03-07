@@ -1,23 +1,17 @@
 <footer>
   <ul>
     <li class="hover-underline-animation"><a href="/developers">Developers</a></li>
+    <li> <a href="/"><img src="/images/horizontal-negro.svg" alt="logo" class="nav-logo"></a></li>
     <li>
-      <div class="logo-and-avatar">
-        <a href="/"><img src="/images/horizontal-negro.svg" alt="logo" class="nav-logo"></a>
-        {{#if currentUser }}
-        <a href="/user/{{currentUser.id}}">
-          <div alt="Avatar">
-            {{#if currentUser }}
-            <img class="border rounded-circle" style="width: 40px; height: 40px;" src={{currentUser.avatar}} />
-            {{else}}
-            <img class="border rounded-circle" style="width: 40px; height: 40px;" src={{currentUser.avatar}} />
-            {{/if}}
-          </div>
-        </a>
-        {{else}}
-    <li><a href="/loginSelection"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></li>
-    {{/if}}
-    </div>
+      {{#if currentUser }}
+      <a href="/user/{{currentUser.id}}">
+        <div alt="Avatar">
+          <img class="border rounded-circle" style="width: 40px; height: 40px;" src={{currentUser.avatar}} />
+        </div>
+      </a>
+      {{else}}
+      <a href="/loginSelection"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+      {{/if}}
     </li>
     {{!-- <li class="hover-underline-animation"><a href="/">My sites</a></li> --}}
     <li class="hover-underline-animation"><a href="/projects">Projects</a></li>

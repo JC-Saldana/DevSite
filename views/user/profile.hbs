@@ -1,3 +1,4 @@
+{{> footer}}
 <div class="profile-body">
   <div class="profile-pic-container">
     <img src="{{user.avatar}}" alt="img" class="profile-pic">
@@ -13,8 +14,8 @@
         <a href="/user/{{user._id}}/edit" style="text-decoration: none; color:black; margin-right: 5px;" title="Edit">
           <i class="fa-solid fa-pen-to-square" style="font-size: 27px;"></i>
         </a>
-        {{/if}}
         <a href="/logout" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+        {{/if}}
       </div>
       <div>
         <i class="fa-brands fa-linkedin-in"></i>
@@ -39,13 +40,12 @@
       {{/each}}
     </ul>
     <sub>Projects</sub>
-    {{#if currentUser }}
-      <div class="add-project my-4">
-        <a href="/create/project">
+    {{#if (isMyProfile userName=user.name currentUserName=currentUser.name)}}
+    <div class="add-project my-4">
+      <a href="/create/project">
         <i class="fa-solid fa-plus"></i>
         Add new project
-        </a>
-      </div>
+      </a>
     </div>
     {{/if}}
     <div class="profile-projects">
