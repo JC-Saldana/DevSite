@@ -1,3 +1,29 @@
+<div class="container">
+	<div class="row d-flex flex-column justify-content-center m-0 p-0">
+		<div class=" rounded col-8 overflow-hidden header-project m-0 p-0"
+		style="background-image: url('{{project.images}}');
+		background-size: cover;
+		background-position: center;
+		width: 100%;
+		height: 20rem;">
+		</div>
+		<div>
+			<h2 class="mt-4 fs-1">{{project.title}}</h2>
+			<p>{{{project.description}}}</p>
+			<ul class="list-horizontal">
+				{{#each project.skills as |skill|}}
+				<li>
+					<small class="badge rounded-pill bg-secondary">{{skill}}</small>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+{{!-- 
 <div class="project project-details scale-up-center">
 	<h2 class="project-title"><strong>{{project.title}}</strong></h2>
 	<p><sub>by {{project.user.name}}</sub></p>
@@ -16,8 +42,11 @@
 	</i>
 </div>
 
-<h3 class="mt-4">Comment! 🤙</h3>
+ --}}
+
 {{!-- Comment --}}
+<div class="container">
+<h3 class="mt-4">Comment! 🤙</h3>
 <div class="rounded p-3" style="background-color: rgb(250, 250, 250);">
 	<form action="/comment/{{project._id}}" method="POST">
 		<div class="d-flex flex-row mt-4">
@@ -39,17 +68,15 @@
 		{{#each project.comments as |comment|}}
 		<div class="card mb-4">
 			<div class="card-body position-relative">
-
-			<form class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" action="/comment/{{comment.id}}/delete" method="POST" style="height: 30px; width: 30px;">
-				<input type="text" name="id" class="d-none" value="{{project.id}}">
-				<button class="btn" style="font-size: 1rem; color: rgb(255, 255, 255);" type="submit"><i class="fa fa-close"></i></button>
-			</form>
+				<form class="d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" action="/comment/{{comment.id}}/delete" method="POST" style="height: 30px; width: 30px; top:115px;">
+					<input type="text" name="id" class="d-none" value="{{../project.id}}">
+					<button class="btn" style="font-size: 1rem; color: rgb(255, 255, 255);" type="submit"><i class="fa fa-close"></i></button>
+				</form>
 
 				<p>{{comment.comment}}</p>
 				<div class="d-flex flex-row align-items-center mb-2">
                 	<img class="rounded-circle" src="{{user.avatar}}" alt="avatar" width="25" height="25"/>
-                <p class="small mb-0 ms-2">{{comment.user.name}} at {{comment.createdAt}}</p>
-				
+                <sub class="small mb-0 ms-2 d-flex flex-row align-items-center">{{comment.user.name}} {{!-- at {{comment.createdAt}} --}}</sub>
               </div>
 			</div>
 		</div>
@@ -61,7 +88,7 @@
 	<h3 class="fs-5 text-center ">No comments yet! be the first!</h3>
 </div>
 {{/if}}
-
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/axios.js"></script>

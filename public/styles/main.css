@@ -86,7 +86,7 @@ li:first-child:before {
 }
 
 .list-horizontal li:before {
-    content: '\00a0\2022\00a0\00a0';
+/*     content: '\00a0\2022\00a0\00a0'; */
     color: #999;
     color: rgba(0, 0, 0, 0.4);
     font-size: 11px;
