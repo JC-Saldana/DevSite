@@ -21,10 +21,10 @@ body {
 
 main {
     flex-grow: 1;
-    padding: 25px;
+    padding: 0px 25px 25px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
 }
 
@@ -218,14 +218,6 @@ nav {
     width: 125px;
 }
 
-.logo-and-avatar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 75px;
-}
-
 .nav-left>ul * {
     list-style: none;
     display: inline-block;
@@ -271,8 +263,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 125px;
-    padding: 20px 0px 5px;
+    padding: 25px 0px 5px;
 }
 
 .vertical-hr {
@@ -284,6 +275,7 @@ footer>ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0px;
 }
 
 footer>ul * {
@@ -346,6 +338,7 @@ footer>ul * {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 25px;
 }
 
 .developers-form input {

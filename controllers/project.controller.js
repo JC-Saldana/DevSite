@@ -13,19 +13,6 @@ module.exports.projects = (req, res, next) => {
         .catch((error) => next(error));
 }
 
-/* VERSION ANTERIOR A AÑADIR COMENTARIOS 
-module.exports.projectDetails = (req, res, next) => {
-    Project.findById(req.params.id)
-        .populate("user")
-        .then(project => {
-            Like.findOne({ $and: [{ user: req.user._id }, { project: project._id }] })
-                .then(liked => {
-                    console.log("4here", liked)
-                    res.render('misc/project-details', { project, liked })
-                })
-        })
-        .catch((error) => next(error));
-} */
 module.exports.projectDetails = (req, res, next) => {
     Project.findById(req.params.id)
         .populate({
@@ -34,16 +21,13 @@ module.exports.projectDetails = (req, res, next) => {
                 path: 'user'
             }
         })
+        .populate("user")
         .then((project) => {
-            res.render('misc/project-details', { project })
-        })
-/*         .then(project => {
             Like.findOne({ $and: [{ user: req.user._id }, { project: project._id }] })
                 .then(liked => {
-                    console.log("4here", liked)
                     res.render('misc/project-details', { project, liked })
                 })
-        }) */
+        })
         .catch((error) => {
             console.log(error);
             next(error)
@@ -57,17 +41,17 @@ module.exports.createProject = (req, res, next) => {
 module.exports.doCreateProject = (req, res, next) => {
     if (req.file) {
         req.body.images = req.file.path
-      }
+    }
     Project.create(req.body)
         .then(() => res.redirect('/projects'))
         .catch((error) => {
             console.log(error)
             if (error instanceof mongoose.Error.ValidationError) {
-            res.render('misc/createProyect', {
-                errors: error.errors,
-            });
+                res.render('misc/createProyect', {
+                    errors: error.errors,
+                });
             } else {
-            next(error)
+                next(error)
             }
         })
 }
