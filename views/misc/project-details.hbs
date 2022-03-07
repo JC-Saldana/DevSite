@@ -72,14 +72,16 @@
 			{{#each project.comments as |comment|}}
 			<div class="card mb-4">
 				<div class="card-body position-relative">
-					<form
+					{{#isMyAcount ../currentUser.name comment.user.name}}
+						<form
 						class="d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
 						action="/comment/{{comment.id}}/delete" method="POST"
 						style="height: 30px; width: 30px; top:115px;">
-						<input type="text" name="id" class="d-none" value="{{../project.id}}">
-						<button class="btn" style="font-size: 1rem; color: rgb(255, 255, 255);" type="submit"><i
-								class="fa fa-close"></i></button>
-					</form>
+							<input type="text" name="id" class="d-none" value={{../project._id}}>
+							<button class="btn" style="font-size: 1rem; color: rgb(255, 255, 255);" type="submit"><i
+							class="fa fa-close"></i></button>
+						</form>
+					{{/isMyAcount}}
 
 					<p>{{comment.comment}}</p>
 					<div class="d-flex flex-row align-items-center mb-2">
