@@ -1,4 +1,7 @@
-require('dotenv').config();
+
+// NO USAR SEEDS, BORRARÍA BBDD DEFINITIVA
+
+/* require('dotenv').config();
 
 const mongoose = require('mongoose')
 const Project = require('../models/project.model');
@@ -74,4 +77,4 @@ mongoose.connection.once('open', () => {
             console.log("Seed finished")
         })
         .catch(err => console.error('mongoose', err))
-})
+}) */
