@@ -3,9 +3,9 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/DevSit
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.info(`Successfully connected to the database ${MONGODB_URI}`))
+  .then(() => console.info(`Successfully connected to the database`))
   .catch((error) => {
-    console.error(`An error ocurred trying to connect to de database ${MONGODB_URI}`, error);
+    console.error(`An error ocurred trying to connect to de database`, error);
     process.exit(0);
   });
 
