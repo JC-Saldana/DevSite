@@ -3,7 +3,7 @@
   <div class="profile-pic-container">
     <img src="{{user.avatar}}" alt="img" class="profile-pic">
     <div>
-      <p class="mt-4"> <small>Follow 0 - Following 1</small> </p>
+      <p class="mt-4 text-center"> <small>{{user.currentJob}}</small> </p>
     </div>
   </div>
   <div class="profile-pic-right">
@@ -26,11 +26,11 @@
     </div>
     <hr>
     <sub>Biography</sub>
-    <p>{{user.biography}}</p>
+    <p>{{{user.biography}}}</p>
     <sub>Mail</sub>
     <p>{{user.email}}</p>
-    <sub>Current job</sub>
-    <p>{{user.currentJob}}</p>
+{{!--     <sub>Current job</sub>
+    <p>{{user.currentJob}}</p> --}}
     <sub>Skills</sub>
     <ul class="list-horizontal">
       {{#each user.skills as |skill|}}
