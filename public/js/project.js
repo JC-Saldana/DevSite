@@ -19,7 +19,7 @@ document.addEventListener("input", () => {
 
   const renderProjects = projectsFound => {
     const projects = document.querySelectorAll('.project')
-    // Elimina projects
+    // Delete projects
     projects.forEach(project => {
       project.remove()
     });
