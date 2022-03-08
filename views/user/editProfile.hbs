@@ -1,3 +1,4 @@
+  <script src="https://cdn.tiny.cloud/1/tz1i6w9ceg9fdj6gffn3qptanjx01mzw0pdbp5g0grdv2v0g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
  {{> footer}}
 <div class="container py-5 h-100 fade-in" style="min-width: 1000px;">
     <div class="row justify-content-center align-items-center h-100">
@@ -30,7 +31,7 @@
                         <div class="mb-4 d-flex align-items-center">
                             <div class="form-outline datepicker w-100">
                                 <label for="Biography" class="form-label">Biography</label>
-                                <textarea class="form-control" name="biography" rows="3">{{ user.biography }}</textarea>
+                                <textarea class="form-control" id="bio" name="biography">{{ user.biography }}</textarea>
                             </div>
                         </div>
 
@@ -62,3 +63,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    tinymce.init({
+        selector: 'textarea#bio',
+        height: 350,
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+        'bold italic | alignleft aligncenter ' +
+        'alignright alignjustify | bullist numlist outdent indent | ' +
+        'removeformat',
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+    });
+</script>
