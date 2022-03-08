@@ -69,3 +69,17 @@ module.exports.projectForm = (req, res, next) => {
         })
         .catch((error) => next(error));
 }
+
+module.exports.editProject = (req, res, next) => {
+    Project.findById(req.params.id)
+        .then((project) => {
+            res.render('misc/editProject', { project })
+        })
+        .catch(next)
+}
+
+module.exports.doEditProject = (req, res, next) => {
+    Project.findByIdAndUpdate(req.params.id, req.body, { runValidators: true, new: true })
+        .then((project) => res.redirect(`/project/${project._id}`))
+        .catch(next)
+}

@@ -101,3 +101,4 @@ module.exports.doLike = (req, res, next) => {
             .then(() => res.redirect(`/project/${projectId}`))
             .catch(next)
   }
+  
