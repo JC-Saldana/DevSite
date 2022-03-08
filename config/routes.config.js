@@ -40,6 +40,7 @@ router.get('/create/project', project.createProject)
 router.post('/projects', upload.single('images'), project.doCreateProject)
 router.get('/project/:id/edit', project.editProject)
 router.post('/project/:id/edit', upload.single('images'), project.doEditProject)
+router.post('/project/:id/delete', project.delete)
 
 //Auth Routes
 router.get('/register', auth.register)

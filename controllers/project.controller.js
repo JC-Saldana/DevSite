@@ -83,3 +83,11 @@ module.exports.doEditProject = (req, res, next) => {
         .then((project) => res.redirect(`/project/${project._id}`))
         .catch(next)
 }
+
+module.exports.delete = (req, res, next) => {
+    Project.findByIdAndDelete(req.params.id)
+        .then(() => {
+            res.redirect('/projects');
+        })
+        .catch(next);
+};
