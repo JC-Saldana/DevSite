@@ -1,6 +1,6 @@
 
 const httpClient = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://devsite-ironhack.herokuapp.com/'
   })
   
   const likeProject = (id, icon) => httpClient.post(`/like/${id}`)
