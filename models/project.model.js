@@ -17,12 +17,12 @@ const projectSchema = new Schema({
   skills: {
     type: [String],
     enum: ["javascript", "node", "mongoDb", "express", "typescript", "go", "ruby", "python", "c", "c++", "java" ],
-/*     required: true */
+    required: true
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-/*     required: true, */
+    required: true,
   },
 }, { timestamps: true })
 
