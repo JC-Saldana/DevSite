@@ -1,7 +1,7 @@
 const Project = require('../models/project.model')
 const Like = require('../models/like.model')
 const mongoose = require('mongoose')
-const Comment = require('../models/comment.model')
+//const Comment = require('../models/comment.model')
 
 module.exports.projects = (req, res, next) => {
     Project.find()
@@ -13,7 +13,7 @@ module.exports.projects = (req, res, next) => {
         .catch((error) => next(error));
 }
 
-module.exports.projectDetails = (req, res, next) => {
+module.exports.projectDetails = (req, res, next) => {   
     Project.findById(req.params.id)
         .populate({
             path: 'comments',
