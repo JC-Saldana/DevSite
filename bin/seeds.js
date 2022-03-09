@@ -28,12 +28,12 @@ mongoose.connection.once('open', () => {
     mongoose.connection.db
         .dropDatabase()
         .then(() => `O.o! ${mongoose.connection.db.databaseName} dropped!`)
-        /* .then(() => {
+        .then(() => {
             projects.forEach(project => {
                 new Project(project).save()
                     .catch(err => console.error(err))
             })
-        }) */
+        })
         .then(() => {
             // Seed Users
             const users = []

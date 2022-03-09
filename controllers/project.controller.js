@@ -42,7 +42,7 @@ module.exports.doCreateProject = (req, res, next) => {
     if (req.file) {
         req.body.images = req.file.path
     }
-    Project.create(req.body)
+    Project.create({...req.body, user: req.user._id})
         .then(() => res.redirect('/projects'))
         .catch((error) => {
             console.log(error)
