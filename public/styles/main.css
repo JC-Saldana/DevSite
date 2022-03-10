@@ -65,10 +65,12 @@ main {
     padding: 0.5rem;
     max-width: 15rem;
 }
+
 .add-project a {
     text-decoration: none;
     color: #1d1d1d;
 }
+
 .add-project i {
     font-size: 1rem;
 }
@@ -86,7 +88,7 @@ li:first-child:before {
 }
 
 .list-horizontal li:before {
-/*     content: '\00a0\2022\00a0\00a0'; */
+    /*     content: '\00a0\2022\00a0\00a0'; */
     color: #999;
     color: rgba(0, 0, 0, 0.4);
     font-size: 11px;
@@ -114,9 +116,50 @@ sub {
 
 .profile-projects {
     display: flex;
-    flex-wrap: wrap;
-    max-height: 400px;
-    overflow: auto;
+    flex-direction: column;
+}
+
+.profile-project {
+    height: auto;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.profile-project-img-footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    border-radius: 6px;
+    background-image: linear-gradient(185deg, rgba(0,0,0,0.0) 25%, rgba(0,0,0,0.9) 100%);
+    padding: 15px 10px 5px;
+}
+
+.profile-project-img {
+    position: relative;
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background-size: cover;
+}
+
+.profile-project-skills {
+    display: flex;
+}
+
+.profile-project-skill {
+    color: #000;
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 0px 10px;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.profile-project-title {
+    color: #fff;
+    text-decoration: none;
+    margin: 0px;
 }
 
 .project {
