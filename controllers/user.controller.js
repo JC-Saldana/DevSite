@@ -24,10 +24,8 @@ module.exports.user = (req, res, next) => {
         
         .populate("projects")
         .then(user => {
-            console.log(user.biography)
             res.render('user/profile', { user })
         })
-
         .catch((error) => next(error));
 }
 
