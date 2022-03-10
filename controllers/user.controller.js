@@ -1,6 +1,7 @@
 const User = require('../models/user.model')
 const Like = require('../models/like.model')
 const Comment = require('../models/comment.model')
+const Project = require('../models/project.model')
 
 module.exports.edit = (req, res, next) => {
     User.findById(req.params.id)
@@ -24,7 +25,14 @@ module.exports.user = (req, res, next) => {
         
         .populate("projects")
         .then(user => {
-            res.render('user/profile', { user })
+            Like.find({ user: user._id })
+                .then(likes => {
+                    const projectsIds = likes.map(like => like.project);
+                    Project.find({ _id: { $in: projectsIds } })
+                        .then(likedProjects => {
+                            res.render('user/profile', { user, likedProjects })
+                        })
+                })
         })
         .catch((error) => next(error));
 }
@@ -66,21 +74,21 @@ module.exports.developers = (req, res, next) => {
 module.exports.doLike = (req, res, next) => {
     const projectId = req.params.id
     const userId = req.user.id
-    Like.findOneAndDelete({ project: projectId, user: userId})
-      .then(like => {
-        if (like) {
-          res.status(200).send({ success : 'Like remove from DDBB'})
-        } else {
-          return Like.create({ project: projectId, user: userId })
-            .then(() => {
-              res.status(201).send({ success : 'Like added to DDBB' })
-            })
-        }
-      })
-      .catch(next)
-  }
+    Like.findOneAndDelete({ project: projectId, user: userId })
+        .then(like => {
+            if (like) {
+                res.status(200).send({ success: 'Like remove from DDBB' })
+            } else {
+                return Like.create({ project: projectId, user: userId })
+                    .then(() => {
+                        res.status(201).send({ success: 'Like added to DDBB' })
+                    })
+            }
+        })
+        .catch(next)
+}
 
-  module.exports.doComment = (req, res, next) => {
+module.exports.doComment = (req, res, next) => {
     const user = req.user;
     const comment = req.body.comment
     const projectId = req.params.id
@@ -90,15 +98,14 @@ module.exports.doLike = (req, res, next) => {
         comment: comment,
         project: projectId
     })
-    .then(() => res.redirect(`/project/${projectId}`))
-    .catch(next)
-  }
+        .then(() => res.redirect(`/project/${projectId}`))
+        .catch(next)
+}
 
-  module.exports.deleteComment = (req, res, next) => {
+module.exports.deleteComment = (req, res, next) => {
     const projectId = req.body.id
-    
-        Comment.findByIdAndDelete(req.params.id)
-            .then(() => res.redirect(`/project/${projectId}`))
-            .catch(next)
-  }
-  
+
+    Comment.findByIdAndDelete(req.params.id)
+        .then(() => res.redirect(`/project/${projectId}`))
+        .catch(next)
+}
