@@ -22,6 +22,7 @@ module.exports.doEdit = (req, res, next) => {
 
 module.exports.user = (req, res, next) => {
     User.findById(req.params.id)
+        
         .populate("projects")
         .then(user => {
             Like.find({ user: user._id })

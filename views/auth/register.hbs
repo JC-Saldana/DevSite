@@ -4,10 +4,10 @@
     <div class="row justify-content-center align-items-center h-100">
         <div class="col-12 col-lg-9 col-xl-7">
             <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                <div class="card-body p-4 p-md-5">
-                    <img src="/images/horizontal-negro.svg" alt="logo">
+                <div class="card-body p-4 p-md-5 d-flex flex-column justify-content-center align-items-center">
+                    <img class="mb-4 w-75" src="/images/horizontal-negro.svg" alt="logo">
                     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Register</h3>
-                    <form action="/register" method="POST" enctype="multipart/form-data">
+                    <form class="w-100" action="/register" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <input type="text" name="name" class="form-control form-control-lg {{#if errors.name}}is-invalid{{/if}}"
