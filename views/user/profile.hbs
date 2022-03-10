@@ -25,6 +25,13 @@
       </div>
     </div>
     <hr>
+
+    <div class="rounded d-flex flex-column justify-content-center align-items-center" style="background-color: rgb(245, 245, 245); height: 20rem;">
+      <h3 class="fs-5">Aún no has completado tu perfil. Rellena el formulario</h3>
+      <a class="btn btn-dark" href="/user/{{user._id}}/edit">Fill it now</a>
+    </div>
+
+    <div>
     <sub>Biography</sub>
     <p>{{{user.biography}}}</p>
     <sub>Mail</sub>
@@ -37,6 +44,9 @@
       </li>
       {{/each}}
     </ul>
+    </div>
+
+   
     <sub>Projects</sub>
     {{#if (isMyProfile userName=user.name currentUserName=currentUser.name)}}
     <div class="add-project my-4">
