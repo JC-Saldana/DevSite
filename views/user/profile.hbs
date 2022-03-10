@@ -47,8 +47,7 @@
     </div>
     {{/if}}
 
-{{!-- PRYECTO EJEMPLO --}}
-    <div class="container p-0 mb-5" >
+    <div class="container p-0 mb-5 mt-3" >
       {{#each user.projects as |project|}}
       <a href="/project/{{project.id}}" style="text-decoration: none !important; color: white;">
       <div class="card border-0 pt-5 mb-2" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.20) 35%, rgba(0,0,0,0.8) 100%), url({{project.images}}); max-width: 720px;" >
