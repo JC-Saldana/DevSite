@@ -79,6 +79,9 @@ module.exports.editProject = (req, res, next) => {
 }
 
 module.exports.doEditProject = (req, res, next) => {
+    if (req.file) {
+        req.body.images = req.file.path
+    }
     Project.findByIdAndUpdate(req.params.id, req.body, { runValidators: true, new: true })
         .then((project) => res.redirect(`/project/${project._id}`))
         .catch(next)
