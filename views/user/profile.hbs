@@ -25,18 +25,31 @@
       </div>
     </div>
     <hr>
-    <sub>Biography</sub>
-    <p>{{{user.biography}}}</p>
-    <sub>Mail</sub>
-    <p>{{user.email}}</p>
-    <sub>Skills</sub>
-    <ul class="list-horizontal">
-      {{#each user.skills as |skill|}}
-      <li>
-        <small class="badge rounded-pill bg-secondary">{{skill}}</small>
-      </li>
-      {{/each}}
-    </ul>
+
+{{#if user.biography}}
+    <div>
+      <sub>Biography</sub>
+      <p>{{{user.biography}}}</p>
+      <sub>Mail</sub>
+      <p>{{user.email}}</p>
+      <sub>Skills</sub>
+      <ul class="list-horizontal">
+        {{#each user.skills as |skill|}}
+        <li>
+          <small class="badge rounded-pill bg-secondary">{{skill}}</small>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    {{else}}
+
+    <div class="rounded d-flex flex-column justify-content-center align-items-center" style="background-color: rgb(245, 245, 245); height: 20rem;">
+      <h3 class="fs-5 mb-3">You have not yet completed your profile. Fill in the form.</h3>
+      <a class="btn btn-dark px-3" href="/user/{{user._id}}/edit">Fill it now!</a>
+    </div>
+
+    {{/if}}
+
     <sub>Projects</sub>
     {{#if (isMyProfile userName=user.name currentUserName=currentUser.name)}}
     <div class="add-project my-4">
