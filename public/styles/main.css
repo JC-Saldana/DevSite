@@ -439,7 +439,7 @@ footer>ul * {
 }
 
 .project {
-    min-width: 300px;
+    
     max-width: 350px;
     border-radius: 12px;
     color: rgba(0, 0, 0, 0.4);
@@ -521,5 +521,6 @@ footer>ul * {
 .founder {
     color: red;
     font-size: 22px;
+    margin-right: 12px;
 }
 

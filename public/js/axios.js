@@ -5,8 +5,15 @@ const httpClient = axios.create({
   })
   
   const likeProject = (id, icon) => httpClient.post(`/like/${id}`)
-    .then(() => {
+    .then(res => {
       icon.classList.toggle('icon-liked');
+      let count = parseInt(document.querySelector('.like-count').innerHTML)
+      if(res.status === 200) {
+        document.querySelector('.like-count').innerHTML = count - 1
+      } else if (res.status === 201) {
+        document.querySelector('.like-count').innerHTML = count + 1
+      }
+
     })
     .catch(err => console.error(err))
     .finally(() => icon.classList.remove('icon-events-none'))
