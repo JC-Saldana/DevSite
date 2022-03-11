@@ -19,22 +19,26 @@
       </div>
       <div>
         {{#if user.linkedin}}
-        <a href="{{user.linkedin}}" style="text-decoration: none; color:black;" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="{{user.linkedin}}" style="text-decoration: none; color:black;" target="_blank"><i
+            class="fa-brands fa-linkedin-in"></i></a>
         {{/if}}
         {{#if user.github}}
-        <a href="{{user.github}}" style="text-decoration: none; color:black;" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="{{user.github}}" style="text-decoration: none; color:black;" target="_blank"><i
+            class="fa-brands fa-github"></i></a>
         {{/if}}
         {{#if user.instagram}}
-        <a href="{{user.instagram}}" style="text-decoration: none; color:black;" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="{{user.instagram}}" style="text-decoration: none; color:black;" target="_blank"><i
+            class="fa-brands fa-instagram"></i></a>
         {{/if}}
         {{#if user.facebook}}
-        <a href="{{user.facebook}}" style="text-decoration: none; color:black;" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="{{user.facebook}}" style="text-decoration: none; color:black;" target="_blank"><i
+            class="fa-brands fa-facebook"></i></a>
         {{/if}}
       </div>
     </div>
     <hr>
 
-{{#if user.biography}}
+    {{#if user.biography}}
     <div>
       <sub>Biography</sub>
       <p>{{{user.biography}}}</p>
@@ -51,10 +55,11 @@
       </ul>
     </div>
     {{/if}}
-    
+
     {{else}}
 
-    <div class="rounded d-flex flex-column justify-content-center align-items-center" style="background-color: rgb(245, 245, 245); height: 20rem;">
+    <div class="rounded d-flex flex-column justify-content-center align-items-center"
+      style="background-color: rgb(245, 245, 245); height: 20rem;">
       <h3 class="fs-5 mb-3">You have not yet completed your profile. Fill in the form.</h3>
       <a class="btn btn-dark px-3" href="/user/{{user._id}}/edit">Fill it now!</a>
     </div>
@@ -91,13 +96,16 @@
     </div>
     <sub>Liked Projects</sub>
     <br>
-    <div class="projects fade-in">
+    <div class="liked-projects fade-in">
       {{#each likedProjects as |project|}}
       <a href="/project/{{project.id}}" class="project-container scale-up-center">
         <div class="project">
           <img src="{{project.images}}" alt="img" class="project-pic">
-          <p class="project-title"><strong>{{project.title}}</strong></p>
-          <p><sub>by {{project.user.name}}</sub></p>
+          <div class="project-footer">
+            <p class="project-title"><strong>{{project.title}}</strong></p>
+            <p><sub>by {{project.user.name}}</sub></p>
+          </div>
+          <hr class="project-footer-hr">
           <ul class="list-horizontal">
             {{#each project.skills as |skill|}}
             <li>

@@ -22,13 +22,13 @@ module.exports.doEdit = (req, res, next) => {
 
 module.exports.user = (req, res, next) => {
     User.findById(req.params.id)
-        
         .populate("projects")
         .then(user => {
             Like.find({ user: user._id })
                 .then(likes => {
                     const projectsIds = likes.map(like => like.project);
                     Project.find({ _id: { $in: projectsIds } })
+                        .populate("user")
                         .then(likedProjects => {
                             res.render('user/profile', { user, likedProjects })
                         })
