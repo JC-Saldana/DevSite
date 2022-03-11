@@ -44,18 +44,19 @@
 				background-position: center;
 				width: 100%;
 				height: 20rem;">
-						<div class="d-flex justify-content-end align-items-center mx-2">
+						<div class="d-flex justify-content-end align-items-center ml-2">
 							{{#isMyAccount currentUser.name project.user.name}}
 							<a class="btn btn-light px-3" href="/project/{{../project.id}}/edit"><i
 									class="fa fa-pen-to-square"></i> Edit project</a>
 							<form class="mx-3" action="/project/{{../project.id}}/delete" method="POST">
-								<button class="btn btn-outline-light">Delete</button>
+								<button class="btn btn-light">Delete</button>
 							</form>
 							{{/isMyAccount}}
 						</div>
 						<div id="like-button-container" data-id="{{project.id}}"
-							class="rounded-circle bg-white d-flex justify-content-center align-items-center p-2"
-							style=" width: 2.3rem; height: 2.3rem; text-align: center !important;">
+							class="rounded bg-white d-flex justify-content-center align-items-center p-2"
+							style=" width: 3.5rem; height: 2.3rem; text-align: center !important;">
+							<span style="margin-right: 6px;"><strong class="like-count">{{likeCount}}</strong></span>
 							<i data-id="{{project.id}}"
 								class="like-action fa-solid fa-heart {{#if liked}}icon-liked{{/if}}"></i>
 						</div>
@@ -92,12 +93,12 @@
 						<div class="card mb-4 single-comment">
 							<div class="card-body position-relative">
 								{{#isMyAccount ../currentUser.name comment.user.name}}
-								<div
-									class="d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+								<div class="d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
 									style="height: 30px; width: 30px; top:115px;">
 									<input type="text" name="id" class="d-none" value={{../project._id}}>
-									<button data-id="{{comment.id}}" class="btn delete-button" style="font-size: 1rem; color: rgb(255, 255, 255);"
-										type="submit"><i class="fa fa-close"></i></button>
+									<button data-id="{{comment.id}}" class="btn delete-button"
+										style="font-size: 1rem; color: rgb(255, 255, 255);" type="submit"><i
+											class="fa fa-close"></i></button>
 								</div>
 								{{/isMyAccount}}
 

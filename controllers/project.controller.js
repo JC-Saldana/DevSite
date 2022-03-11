@@ -13,7 +13,7 @@ module.exports.projects = (req, res, next) => {
         .catch((error) => next(error));
 }
 
-module.exports.projectDetails = (req, res, next) => {   
+module.exports.projectDetails = (req, res, next) => {
     Project.findById(req.params.id)
         .populate({
             path: 'comments',
@@ -25,7 +25,11 @@ module.exports.projectDetails = (req, res, next) => {
         .then((project) => {
             Like.findOne({ $and: [{ user: req.user._id }, { project: project._id }] })
                 .then(liked => {
-                    res.render('misc/project-details', { project, liked })
+                    Like.find({ project: project._id })
+                        .then(likeCount => {
+                            res.render('misc/project-details', { project, liked, likeCount: likeCount.length })
+                        })
+                        .catch((error) => next(error));
                 })
         })
         .catch((error) => {
@@ -42,7 +46,7 @@ module.exports.doCreateProject = (req, res, next) => {
     if (req.file) {
         req.body.images = req.file.path
     }
-    Project.create({...req.body, user: req.user._id})
+    Project.create({ ...req.body, user: req.user._id })
         .then(() => res.redirect('/projects'))
         .catch((error) => {
             console.log(error)
