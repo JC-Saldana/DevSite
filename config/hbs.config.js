@@ -6,7 +6,7 @@ hbs.registerHelper('isMyProfile', (options) => {
   return userName === currentUserName
 })
 
-hbs.registerHelper('isMyAcount', (arg1, arg2, options) => {
+hbs.registerHelper('isMyAccount', (arg1, arg2, options) => {
   if(arg1 === arg2){
     return options.fn(this);
   } else {
