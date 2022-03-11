@@ -12,12 +12,12 @@ const projectSchema = new Schema({
   },
   description: {
     type: String,
-    required: true
+    required: [true, 'Tell us about your project']
   },
   skills: {
     type: [String],
     enum: ["javascript", "node", "mongoDb", "express", "typescript", "go", "ruby", "python", "c", "c++", "java" ],
-    required: true
+    required: [true, 'Is required']
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

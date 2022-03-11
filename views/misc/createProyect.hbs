@@ -31,7 +31,8 @@
 
                                     <div class="form-group">
                                         <label for="title" class="form-label">Set a title for your project *</label>
-                                        <input name="title" type="text" class="form-control mb-4" placeholder="Project Title" autocomplete="off" autofocus required >
+                                        <input name="title" type="text" class="form-control mb-4 {{#if errors.title}}is-invalid{{/if}}" placeholder="Project Title" autocomplete="off" autofocus required>
+                                         {{#if errors.title}}<div class="invalid-feedback" style="margin-top: -1rem;">{{errors.title}}</div>{{/if}}
                                     </div>
 
                                     <div class="mb-4 form-group ">
@@ -46,13 +47,14 @@
 
                                     <div class="mb-4 mx-3 form-group ">
                                         <label class="mb-2" for="description">Description about your project *</label>
-                                        <textarea class="form-control rounded mt-4" id="project" name="description"
+                                        <textarea class="form-control rounded mt-4 {{#if errors.description}}is-invalid{{/if}}" id="project" name="description"
                                             placeholder="Project description"></textarea>
+                                            {{#if errors.description}}<div class="invalid-feedback">{{errors.description}}</div>{{/if}}
                                     </div>
 
                                     <div class="mb-4 mx-3 form-group">
-                                        <label for="skills" class="form-label">What you have used to make your project?</label>
-                                        <select name="skills" class="form-select" size="5" multiple>
+                                        <label for="skills" class="form-label ">What you have used to make your project? *</label>
+                                        <select name="skills" class="form-select {{#if errors.skills}}is-invalid{{/if}}" size="5" multiple>
                                             <option value="ruby">Ruby</option>
                                             <option value="go">Go</option>
                                             <option value="java">Java</option>
@@ -62,6 +64,7 @@
                                             <option value="c++">C++</option>
                                             <option value="typescript">TypeScript</option>
                                         </select>
+                                        {{#if errors.skills}}<div class="invalid-feedback">{{errors.skills}}</div>{{/if}}
                                     </div>
 
                                 </div>
