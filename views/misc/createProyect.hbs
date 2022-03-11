@@ -1,76 +1,115 @@
 <script src="https://cdn.tiny.cloud/1/tz1i6w9ceg9fdj6gffn3qptanjx01mzw0pdbp5g0grdv2v0g/tinymce/5/tinymce.min.js"
     referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="/styles/registerForm.css">
+
 {{> footer}}
 
-<div class="container p-0">
-    <div class="row mt-4 d-flex justify-content-center">
-        <div
-            class="col-sm-12 col-md-6 mb-5 px-3 d-inline-flex flex-md-column justify-content-start align-items-end">
-            <video playsinline muted loop autoplay style="width: 35rem;" class="sposition-sticky sticky-top">
-                <source
-                    src="https://assets-global.website-files.com/5bcb46130508ef456a7b2930/5d05f9736a93605e6d950a1e_drawkit-grape-pack-illustration-4-transcode.mp4"
-                    type="video/mp4">
-            </video>
-        </div>
+<section style="background-color: rgb(247, 247, 247); width: 100vw; height: 150vh;">
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-10">
+                <div class="card" style="border-radius: 25px;">
+                    <div class="card-body row p-md-5">
+                        <div class="d-flex flex-column justify-content-center align-items-center" style="margin-bottom: -1rem;">
+                            
+                            <h2 class="mb-4 fade-in">Let's create a project</h2>
 
-        <div class="col-sm-12 col-md-6 p-0">
-            <div class="container fade-in p-0 mw-75">
-                <div class="row d-flex flex-column justify-content-center m-0 p-0">
-                    <form action="/projects" method="POST" enctype="multipart/form-data">
-                        <h2 class="mb-4 fade-in">Create project</h2>
-                        <div class="form-group ">
-                            <label for="title" class="form-label">Title of your project</label>
-                            <input name="title" type="text" class="form-control mb-4" placeholder="Project Name">
+                            <div style="text-align:center; margin-top: -0.7rem;">
+                                <span class="step"></span>
+                                <span class="step"></span>
+                            </div>
+
                         </div>
 
-                        <div class="mb-4 form-group ">
-                            <label for="images" class="form-label">Image for your project</label>
-                            <input name="images" type="file" class="form-control">
+                        <div class="col-6 fade-in p-0 mw-75 d-flex flex-column justify-content-center align-items-center">
+                            <div class="row">
+                                <form id="regForm" action="/projects" method="POST" enctype="multipart/form-data">
+
+                                <div class="tab">
+
+                                <div class="d-flex flex-column justify-content-center" id="step1">
+
+                                    <div class="form-group">
+                                        <label for="title" class="form-label">Set a title for your project *</label>
+                                        <input name="title" type="text" class="form-control mb-4 {{#if errors.title}}is-invalid{{/if}}" placeholder="Project Title" autocomplete="off" autofocus required>
+                                         {{#if errors.title}}<div class="invalid-feedback" style="margin-top: -1rem;">{{errors.title}}</div>{{/if}}
+                                    </div>
+
+                                    <div class="mb-4 form-group ">
+                                        <label for="images" class="form-label">Select a cover *</label>
+                                        <input name="images" type="file" class="form-control">
+                                    </div>
+
+                                </div>
+                                </div>
+
+                                <div class="tab mx-3" id="step-2" style="width: 460px; z-index: 1;">
+
+                                    <div class="mb-4 mx-3 form-group ">
+                                        <label class="mb-2" for="description">Description about your project *</label>
+                                        <textarea class="form-control rounded mt-4 {{#if errors.description}}is-invalid{{/if}}" id="project" name="description"
+                                            placeholder="Project description"></textarea>
+                                            {{#if errors.description}}<div class="invalid-feedback">{{errors.description}}</div>{{/if}}
+                                    </div>
+
+                                    <div class="mb-4 mx-3 form-group">
+                                        <label for="skills" class="form-label ">What you have used to make your project? *</label>
+                                        <select name="skills" class="form-select {{#if errors.skills}}is-invalid{{/if}}" size="5" multiple>
+                                            <option value="ruby">Ruby</option>
+                                            <option value="go">Go</option>
+                                            <option value="java">Java</option>
+                                             <option value="javascript">JavaScript</option>
+                                            <option value="python">Python</option>
+                                            <option value="c">C</option>
+                                            <option value="c++">C++</option>
+                                            <option value="typescript">TypeScript</option>
+                                        </select>
+                                        {{#if errors.skills}}<div class="invalid-feedback">{{errors.skills}}</div>{{/if}}
+                                    </div>
+
+                                </div>
+
+                                <div  style="overflow:auto;">
+                                <div style="float:left;" class="my-1">
+                                    <button class="btn btn-outline-primary" type="button" id="prevBtn" onclick="nextPrev(-1)" style="margin-left: 2rem; margin-right: 1rem;">Previous</button>
+                                    <button class="btn btn-primary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                                </div>
+
+                                </div>
+                                
+                                    <button type="submit" class="btn btn-primary" style="display: none;">Create project</button>
+
+                                </form>
+
+                            </div>
                         </div>
-
-                        <div class="mb-4 form-group ">
-                            <label for="description">Description about your project</label>
-                            <textarea class="form-control rounded" id="project" name="description"
-                                placeholder="Project description"></textarea>
+                        <div class="col-6 overflow-hidden d-flex justify-content-center align-items-center" id="video">
+                            <video playsinline muted loop autoplay style="width: 30rem; height: 27rem;" class="sposition-sticky sticky-top">
+                                <source
+                                    src="https://assets-global.website-files.com/5bcb46130508ef456a7b2930/5d06154c6a9360b7a49538b6_drawkit-grape-pack-illustration-8-transcode.mp4"
+                                    type="video/mp4">
+                            </video>
                         </div>
-
-                        <div class="mb-4 form-group">
-                            <label for="skills" class="form-label">Your kills</label>
-                            <select name="skills" class="form-select" multiple>
-                                <option value="javascript">JavaScript</option>
-                                <option value="ruby">Ruby</option>
-                                <option value="go">Go</option>
-                                <option value="java">Java</option>
-                                <option value="python">Python</option>
-                                <option value="c">C</option>
-                                <option value="c++">C++</option>
-                                <option value="typescript">TypeScript</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Create project</button>
-
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
+</section>
+ 
 <script>
     tinymce.init({
         selector: 'textarea#project',
-        height: 500,
+        height: 350,
         menubar: false,
         plugins: [
             'advlist autolink lists link image charmap print preview anchor',
             'searchreplace visualblocks code fullscreen codesample',
             'insertdatetime media table paste code help wordcount textpattern'
         ],
-        toolbar: 'undo redo | formatselect | ' +
-            'bold italic backcolor | alignleft aligncenter ' + ' | codesample |' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
-            'removeformat | help',
+        toolbar: 'undo ' +
+            ' | codesample | bold italic | alignleft aligncenter ' +
+            'alignright alignjustify | bullist outdent indent | ',
         textpattern_patterns: [
             { start: '*', end: '*', format: 'italic' },
             { start: '**', end: '**', format: 'bold' },
