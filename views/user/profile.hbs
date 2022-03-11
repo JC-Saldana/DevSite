@@ -69,7 +69,8 @@
 
     {{/if}}
 
-    <sub>Projects</sub>
+    <p><sub>Projects</sub></p>
+
     {{#if (isMyProfile userName=user.name currentUserName=currentUser.name)}}
     <div class="add-project my-4">
       <a href="/create/project">
@@ -78,7 +79,7 @@
       </a>
     </div>
     {{/if}}
-    <div class="profile-projects fade-in">
+{{!--     <div class="profile-projects fade-in">
       {{#each user.projects as |project|}}
       <div class="profile-project scale-up-center">
         <a href="/project/{{project.id}}">
@@ -96,9 +97,29 @@
         </a>
       </div>
       {{/each}}
+    </div> --}}
+    <div class="profile-projects fade-in">
+      {{#each user.projects as |project|}}
+      <a href="/project/{{project.id}}" class="project-container scale-up-center">
+        <div class="profile-project">
+          <img src="{{project.images}}" alt="img" class="profile-project-pic">
+          <div class="project-footer">
+            <p class="project-title"><strong>{{project.title}}</strong></p>
+            <p><sub>by {{project.user.name}}</sub></p>
+          </div>
+          <hr class="project-footer-hr">
+          <ul class="list-horizontal">
+            {{#each project.skills as |skill|}}
+            <li>
+              <small>{{skill}}</small>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </a>
+      {{/each}}
     </div>
-    <sub>Liked Projects</sub>
-    <br>
+    <p><sub>Liked Projects</sub></p>
     <div class="liked-projects fade-in">
       {{#each likedProjects as |project|}}
       <a href="/project/{{project.id}}" class="project-container scale-up-center">
