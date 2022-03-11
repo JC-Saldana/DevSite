@@ -10,14 +10,14 @@
                     <form class="w-100" action="/register" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6 mb-4">
-                                <input type="text" name="name" class="form-control form-control-lg {{#if errors.name}}is-invalid{{/if}}"
+                                <input type="text" name="name" class="form-control {{#if errors.name}}is-invalid{{/if}}"
                                     placeholder="Full name" value="{{ user.name }}"/>
                                 {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
                             </div>
 
                             <div class="col-md-6 mb-4">
                                 <div>
-                                    <input type="text" name="email" class="form-control form-control-lg {{#if errors.email}}is-invalid{{/if}}"
+                                    <input type="text" name="email" class="form-control {{#if errors.email}}is-invalid{{/if}}"
                                         placeholder="Email" value="{{ user.email }}" />
                                     {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
                                 </div>
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="mb-4 input-group">
-                            <input type="password" name="password" class="form-control form-control-lg {{#if errors.password}}is-invalid{{/if}}"
+                            <input type="password" name="password" class="form-control {{#if errors.password}}is-invalid{{/if}}"
                                 placeholder="Password" />
                             <button class="btn btn-outline-secondary password-toggle c-dark" type="button">
                                 <i class="fa fa-eye-slash fa-fw"></i>
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="mb-4">
-                            <input type="text" name="currentJob" class="form-control form-control-lg"
+                            <input type="text" name="currentJob" class="form-control"
                                 placeholder="Current Job" value="{{ user.currentJob }}" />
                         </div>
 
@@ -48,6 +48,14 @@
                         <div class="mb-4">
                             <label for="formFile" class="form-label">Profile Image</label>
                             <input class="form-control" name="avatar" type="file">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="formFile" class="form-label">Paste your social profiles</label>
+                            <input class="form-control mb-2" name="github" type="text" placeholder="Github">
+                            <input class="form-control mb-2" name="linkedin" type="text" placeholder="Linkedin">
+                            <input class="form-control mb-2" name="instagram" type="text" placeholder="Instagram">
+                            <input class="form-control mb-2" name="facebook" type="text" placeholder="Facebook">
                         </div>
 
                         <div class="mb-4">
