@@ -19,16 +19,16 @@
       </div>
       <div>
         {{#if user.linkedin}}
-        <a href="{{user.linkedin}}" style="text-decoration: none; color:black;"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="{{user.linkedin}}" style="text-decoration: none; color:black;" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
         {{/if}}
         {{#if user.github}}
-        <a href="{{user.github}}" style="text-decoration: none; color:black;"><i class="fa-brands fa-github"></i></a>
+        <a href="{{user.github}}" style="text-decoration: none; color:black;" target="_blank"><i class="fa-brands fa-github"></i></a>
         {{/if}}
         {{#if user.instagram}}
-        <a href="{{user.instagram}}" style="text-decoration: none; color:black;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="{{user.instagram}}" style="text-decoration: none; color:black;" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         {{/if}}
         {{#if user.facebook}}
-        <a href="{{user.facebook}}" style="text-decoration: none; color:black;"><i class="fa-brands fa-facebook"></i></a>
+        <a href="{{user.facebook}}" style="text-decoration: none; color:black;" target="_blank"><i class="fa-brands fa-facebook"></i></a>
         {{/if}}
       </div>
     </div>
@@ -40,6 +40,7 @@
       <p>{{{user.biography}}}</p>
       <sub>Mail</sub>
       <p>{{user.email}}</p>
+      {{#if user.skills}}
       <sub>Skills</sub>
       <ul class="list-horizontal">
         {{#each user.skills as |skill|}}
@@ -49,6 +50,7 @@
         {{/each}}
       </ul>
     </div>
+    {{/if}}
     
     {{else}}
 
