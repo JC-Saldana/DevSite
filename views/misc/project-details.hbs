@@ -1,115 +1,125 @@
-<script src="https://cdn.tiny.cloud/1/tz1i6w9ceg9fdj6gffn3qptanjx01mzw0pdbp5g0grdv2v0g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/tz1i6w9ceg9fdj6gffn3qptanjx01mzw0pdbp5g0grdv2v0g/tinymce/5/tinymce.min.js"
+	referrerpolicy="origin"></script>
 {{> footer}}
 <div class="container p-0">
 	<div class="row mt-4 d-flex justify-content-center">
 		<div class="col-sm-12 col-md-4 mb-5 px-3 d-inline-flex flex-md-column justify-content-start align-items-end">
-			<div class="card py-sm-5 py-md-5 sposition-sticky sticky-top" style="position: sticky; top: 3rem; width: 20rem;">
+			<div class="card py-sm-5 py-md-5 sposition-sticky sticky-top"
+				style="position: sticky; top: 3rem; width: 20rem;">
 				<div class="user text-center">
 					<div class="profile">
 						<a href="/user/{{project.user.id}}">
-						<img src="{{project.user.avatar}}" class="rounded-circle" width="130">
+							<img src="{{project.user.avatar}}" class="rounded-circle" width="130">
 						</a>
 					</div>
 				</div>
 				<div class="mt-3 text-center">
-					<h4 class="mb-0">{{project.user.name}}</h4> <span class="text-muted d-block mb-2">{{project.user.currentJob}}</span>
-					<a class="btn btn-dark px-5 m-3" href="mailto: {{project.user.email}}"><i class="fa fa-envelope"></i>   Contact</a>
+					<h4 class="mb-0">{{project.user.name}}</h4> <span
+						class="text-muted d-block mb-2">{{project.user.currentJob}}</span>
+					<a class="btn btn-dark px-5 m-3" href="mailto: {{project.user.email}}"><i
+							class="fa fa-envelope"></i> Contact</a>
 				</div>
 				<div class="text-center">
-					<p class="mb-1 mt-3">Project develop with: </p>
-						<ul class="list-horizontal">
-							{{#each project.skills as |skill|}}
-							<li>
+					<p class="mb-1 mt-3">Project developed with: </p>
+					<ul class="list-horizontal">
+						{{#each project.skills as |skill|}}
+						<li>
 							<small class="badge rounded-pill bg-secondary">{{skill}}</small>
-							</li>
-							{{/each}}
-						</ul>
+						</li>
+						{{/each}}
+					</ul>
 
 				</div>
 			</div>
-			
-	
+
+
 		</div>
 
 		<div class="col-sm-12 col-md-7 p-0" style="min-width: 680px;">
-			<div class="container fade-in p-0 mw-75" >
+			<div class="container fade-in p-0 mw-75">
 				<div class="row d-flex flex-column justify-content-center m-0 p-0">
-				<div class="rounded overflow-hidden header-project m-0 p-0 d-flex justify-content-end align-items-end p-4" style="background-image: url('{{project.images}}');
+					<div class="rounded overflow-hidden header-project m-0 p-0 d-flex justify-content-end align-items-end p-4"
+						style="background-image: url('{{project.images}}');
 				background-size: cover;
 				background-position: center;
 				width: 100%;
 				height: 20rem;">
-					<div class="d-flex justify-content-end align-items-center mx-2">
-						{{#isMyAcount currentUser.name project.user.name}}
-						<a class="btn btn-light px-3" href="/project/{{../project.id}}/edit"><i class="fa fa-pen-to-square"></i> Edit project</a>
-						<form class="mx-3" action="/project/{{../project.id}}/delete" method="POST">
-							<button class="btn btn-outline-light">Delete</button>
-						</form>
-						{{/isMyAcount}}
+						<div class="d-flex justify-content-end align-items-center mx-2">
+							{{#isMyAcount currentUser.name project.user.name}}
+							<a class="btn btn-light px-3" href="/project/{{../project.id}}/edit"><i
+									class="fa fa-pen-to-square"></i> Edit project</a>
+							<form class="mx-3" action="/project/{{../project.id}}/delete" method="POST">
+								<button class="btn btn-outline-light">Delete</button>
+							</form>
+							{{/isMyAcount}}
+						</div>
+						<div class="rounded-circle bg-white d-flex justify-content-center align-items-center p-2"
+							style=" width: 2.3rem; height: 2.3rem; text-align: center !important;">
+							<i data-id="{{project.id}}"
+								class="like-action fa-solid fa-heart {{#if liked}}icon-liked{{/if}}"></i>
+						</div>
 					</div>
-					<div class="rounded-circle bg-white d-flex justify-content-center align-items-center p-2" style=" width: 2.3rem; height: 2.3rem; text-align: center !important;">
-						<i data-id="{{project.id}}" class="like-action fa-solid fa-heart {{#if liked}}icon-liked{{/if}}"></i>
-					</div>
-				</div>
 
-				<div class="p-0">
-					<h2 class="fs-1 mt-3" style="margin-right: 15px;">{{project.title}}</h2>
-					<p>{{{project.description}}}</p>
-				</div>
-				</div>
-			</div>
-			
-{{!-- Comment --}}
-<div class="container fade-in mb-4 p-0">
-	<h3 class="mt-4">Comment! 🤙</h3>
-	<div class="rounded p-3" style="background-color: rgb(250, 250, 250);">
-		<form action="/comment/{{project._id}}" method="POST">
-			<div class="d-flex flex-row mt-4">
-				<img class="img-fluid rounded-circle m-2" src="{{project.user.avatar}}" width="50">
-				<input name="comment" type="text" class="form-control" placeholder="Add comment">
-			</div>
-			<div class="d-flex justify-content-end mt-2">
-				<button class="btn btn-secondary" type="submit">Comment</button>
-			</div>
-		</form>
-	</div>
-
-	{{#if project.comments}}
-	<hr>
-
-	<div class="row d-flex justify-content-center">
-		<h3 class="fs-5">Comments: {{project.comments.length}}</h3>
-		<div>
-			{{#each project.comments as |comment|}}
-			<div class="card mb-4">
-				<div class="card-body position-relative">
-					{{#isMyAcount ../user.name comment.user.name}}
-						<form
-						class="d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
-						action="/comment/{{comment.id}}/delete" method="POST"
-						style="height: 30px; width: 30px; top:115px;">
-							<input type="text" name="id" class="d-none" value={{../project._id}}>
-							<button class="btn" style="font-size: 1rem; color: rgb(255, 255, 255);" type="submit"><i
-							class="fa fa-close"></i></button>
-						</form>
-					{{/isMyAcount}}
-
-					<p>{{comment.comment}}</p>
-					<div class="d-flex flex-row align-items-center mb-2">
-						<img class="rounded-circle" src="{{project.user.avatar}}" alt="avatar" width="25" height="25" />
-						<sub class="small mb-0 ms-2 d-flex flex-row align-items-center">{{comment.user.name}} </sub>
+					<div class="p-0">
+						<h2 class="fs-1 mt-3" style="margin-right: 15px;">{{project.title}}</h2>
+						<p>{{{project.description}}}</p>
 					</div>
 				</div>
 			</div>
-			{{/each}}
-		</div>
-	</div>
-	{{else}}
-	<div class="mt-3 border p-4">
-		<h3 class="fs-5 text-center ">No comments yet! be the first!</h3>
-	</div>
-	{{/if}}
-</div>
+
+			{{!-- Comment --}}
+			<div class="container fade-in mb-4 p-0">
+				<h3 class="mt-4">Comment! 🤙</h3>
+				<div class="rounded p-3" style="background-color: rgb(250, 250, 250);">
+					<form action="/comment/{{project._id}}" method="POST">
+						<div class="d-flex flex-row mt-4">
+							<img class="img-fluid rounded-circle m-2" src="{{project.user.avatar}}" width="50">
+							<input name="comment" type="text" class="form-control" placeholder="Add comment">
+						</div>
+						<div class="d-flex justify-content-end mt-2">
+							<button class="btn btn-secondary" type="submit">Comment</button>
+						</div>
+					</form>
+				</div>
+
+				{{#if project.comments}}
+				<hr>
+
+				<div class="row d-flex justify-content-center">
+					<h3 class="fs-5">Comments: {{project.comments.length}}</h3>
+					<div>
+						{{#each project.comments as |comment|}}
+						<div class="card mb-4">
+							<div class="card-body position-relative">
+								{{#isMyAcount ../user.name comment.user.name}}
+								<form
+									class="d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+									action="/comment/{{comment.id}}/delete" method="POST"
+									style="height: 30px; width: 30px; top:115px;">
+									<input type="text" name="id" class="d-none" value={{../project._id}}>
+									<button class="btn" style="font-size: 1rem; color: rgb(255, 255, 255);"
+										type="submit"><i class="fa fa-close"></i></button>
+								</form>
+								{{/isMyAcount}}
+
+								<p>{{comment.comment}}</p>
+								<div class="d-flex flex-row align-items-center mb-2">
+									<img class="rounded-circle" src="{{project.user.avatar}}" alt="avatar" width="25"
+										height="25" />
+									<sub class="small mb-0 ms-2 d-flex flex-row align-items-center">{{comment.user.name}}
+									</sub>
+								</div>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+				</div>
+				{{else}}
+				<div class="mt-3 border p-4">
+					<h3 class="fs-5 text-center ">No comments yet! be the first!</h3>
+				</div>
+				{{/if}}
+			</div>
 
 		</div>
 	</div>

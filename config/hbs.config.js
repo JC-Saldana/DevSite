@@ -14,6 +14,15 @@ hbs.registerHelper('isMyAcount', (arg1, arg2, options) => {
   }
 })
 
+hbs.registerHelper('isFounder', (userName, options) => {
+  console.log(userName)
+  if(userName === "Pablo Mateos" || userName === "Carlos Saldaña"){
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+})
+
 /* hbs.registerHelper('userLikedProject', function (options) {
   const { project, likes } = options.hash;
   console.log("---", project, likes)
