@@ -29,8 +29,8 @@ router.post('/like/:id', /* authMiddleware.isAuthenticated, */ user.doLike)
 router.get('/user/:id/edit', user.edit)
 router.post('/user/:id/edit', upload.single('avatar'), user.doEdit)
 //comment
-router.post('/comment/form/params', user.doComment)
-router.post('/comment/:id/delete', user.deleteComment)
+router.post('/comment/create/params', user.doComment)
+router.post('/comment/delete/params', user.deleteComment)
 
 // Project
 router.get('/project/:id', project.projectDetails)

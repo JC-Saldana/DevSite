@@ -93,7 +93,7 @@ module.exports.doComment = (req, res, next) => {
     const comment = { user: req.user, comment: req.query.commentContent, project: req.query.projectId }
     Comment.create(comment)
         .then(() => {
-            Comment.find()
+            Comment.find({project: comment.project})
                 .populate("user")
                 .then(comments => {
                     res.json(comments)
@@ -104,10 +104,10 @@ module.exports.doComment = (req, res, next) => {
 }
 
 module.exports.deleteComment = (req, res, next) => {
-    const commentId = req.params.id
+    const commentId = req.query.commentId
     Comment.findByIdAndDelete(commentId)
         .then(() => {
-            Comment.find()
+            Comment.find({project: req.query.projectId})
                 .populate("user")
                 .then(comments => {
                     res.json(comments)

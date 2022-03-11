@@ -11,7 +11,7 @@ const updateListeners = () => {
 
 function deleteButtonListener(button) {
     const commentId = button.getAttribute('data-id')
-    const deleteComment = () => httpClient.post(`/comment/${commentId}/delete`)
+    const deleteComment = () => httpClient.post(`/comment/delete/params`, null, { params: { commentId, projectId } })
         .then(newComments => {
             console.log("newComments", newComments)
             renderComments(newComments)
@@ -23,7 +23,7 @@ function deleteButtonListener(button) {
 function commentClickListener() {
     const commentContent = document.querySelector("#comment-input").value
     console.log("clicked", commentContent, projectId)
-    const postComment = () => httpClient.post(`/comment/form/params`, null, { params: { projectId, commentContent } })
+    const postComment = () => httpClient.post(`/comment/create/params`, null, { params: { projectId, commentContent } })
         .then(newComments => {
             console.log("newComments", newComments)
             renderComments(newComments)
