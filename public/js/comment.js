@@ -13,7 +13,15 @@ function deleteButtonListener(button) {
     const commentId = button.getAttribute('data-id')
     const deleteComment = () => httpClient.post(`/comment/delete/params`, null, { params: { commentId, projectId } })
         .then(newComments => {
-            console.log("newComments", newComments)
+            console.log(newComments.data)
+            if (newComments.data.length === 0) {
+                const noCommentContainer = document.querySelector(".no-comments-container")
+                const test = document.createElement("div");
+                test.innerHTML = (`<div class="mt-3 border p-4 no-comments">
+                <h3 class="fs-5 text-center ">No comments yet! be the first!</h3>
+                </div>`)
+                noCommentContainer.appendChild(test)
+            }
             renderComments(newComments)
         })
         .catch(err => console.error(err))
@@ -22,10 +30,12 @@ function deleteButtonListener(button) {
 
 function commentClickListener() {
     const commentContent = document.querySelector("#comment-input").value
-    console.log("clicked", commentContent, projectId)
+    const noComment = document.querySelector(".no-comments")
+    if (noComment) {
+        noComment.remove()
+    }
     const postComment = () => httpClient.post(`/comment/create/params`, null, { params: { projectId, commentContent } })
         .then(newComments => {
-            console.log("newComments", newComments)
             renderComments(newComments)
         })
         .catch(err => console.error(err))
@@ -46,7 +56,6 @@ const renderComments = newComments => {
 
     // Añade comments encontrados
     newComments.data.forEach(comment => {
-        console.log(comment)
         const commentHTML = document.createElement("div");
         const deleteButton = document.createElement("div")
         const currentUser = document.querySelector('.profile').getAttribute("data-id")
@@ -59,14 +68,10 @@ const renderComments = newComments => {
                     type="submit"><i class="fa fa-close"></i></button>
             </div>`)
         }
-
         commentHTML.innerHTML =
             `<div class="card mb-4 single-comment">
                 <div class="card-body position-relative">
-                    
-                    
                     ${deleteButton.innerHTML}
-
                     <p>${comment.comment}</p>
                     <div class="d-flex flex-row align-items-center mb-2">
                         <img class="rounded-circle" src="${comment.user.avatar}" alt="avatar" width="25"

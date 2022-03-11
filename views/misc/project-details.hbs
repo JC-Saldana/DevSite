@@ -92,12 +92,12 @@
 						<div class="card mb-4 single-comment">
 							<div class="card-body position-relative">
 								{{#isMyAccount ../currentUser.name comment.user.name}}
-								<div
-									class="d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+								<div class="d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
 									style="height: 30px; width: 30px; top:115px;">
 									<input type="text" name="id" class="d-none" value={{../project._id}}>
-									<button data-id="{{comment.id}}" class="btn delete-button" style="font-size: 1rem; color: rgb(255, 255, 255);"
-										type="submit"><i class="fa fa-close"></i></button>
+									<button data-id="{{comment.id}}" class="btn delete-button"
+										style="font-size: 1rem; color: rgb(255, 255, 255);" type="submit"><i
+											class="fa fa-close"></i></button>
 								</div>
 								{{/isMyAccount}}
 
@@ -111,18 +111,19 @@
 							</div>
 						</div>
 						{{/each}}
-
+						<div class="no-comments-container"></div>
 						{{else}}
-						<div class="mt-3 border p-4">
+						<div class="mt-3 border p-4 no-comments">
 							<h3 class="fs-5 text-center ">No comments yet! be the first!</h3>
 						</div>
 						{{/if}}
 					</div>
 				</div>
 			</div>
-
 		</div>
+
 	</div>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
