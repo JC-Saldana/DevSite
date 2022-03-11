@@ -83,29 +83,36 @@ module.exports.doLike = (req, res, next) => {
                     .then(() => {
                         res.status(201).send({ success: 'Like added to DDBB' })
                     })
+                    .catch((error) => next(error));
             }
         })
         .catch(next)
 }
 
 module.exports.doComment = (req, res, next) => {
-    const user = req.user;
-    const comment = req.body.comment
-    const projectId = req.params.id
-
-    Comment.create({
-        user: user,
-        comment: comment,
-        project: projectId
-    })
-        .then(() => res.redirect(`/project/${projectId}`))
+    const comment = { user: req.user, comment: req.query.commentContent, project: req.query.projectId }
+    Comment.create(comment)
+        .then(() => {
+            Comment.find()
+                .populate("user")
+                .then(comments => {
+                    res.json(comments)
+                })
+                .catch((error) => next(error));
+        })
         .catch(next)
 }
 
 module.exports.deleteComment = (req, res, next) => {
-    const projectId = req.body.id
-
-    Comment.findByIdAndDelete(req.params.id)
-        .then(() => res.redirect(`/project/${projectId}`))
+    const commentId = req.params.id
+    Comment.findByIdAndDelete(commentId)
+        .then(() => {
+            Comment.find()
+                .populate("user")
+                .then(comments => {
+                    res.json(comments)
+                })
+                .catch((error) => next(error));
+        })
         .catch(next)
 }
