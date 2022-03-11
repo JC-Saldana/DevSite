@@ -1,11 +1,14 @@
- {{> footer}}
+{{> footer}}
 <div class="projects fade-in">
 	{{#each projects as |project|}}
 	<a href="/project/{{project.id}}" class="project-container scale-up-center">
 		<div class="project">
 			<img src="{{project.images}}" alt="img" class="project-pic">
-			<p class="project-title"><strong>{{project.title}}</strong></p>
-			<p><sub>by {{project.user.name}}</sub></p>
+			<div class="project-footer">
+				<p class="project-title"><strong>{{project.title}}</strong></p>
+				<p><sub>by {{project.user.name}}</sub></p>
+			</div>
+			<hr class="project-footer-hr">
 			<ul class="list-horizontal">
 				{{#each project.skills as |skill|}}
 				<li>
