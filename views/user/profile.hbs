@@ -1,22 +1,20 @@
 {{> footer}}
-<div class="profile-body fade-in">
+<div class="profile-body mt-4 fade-in">
   <div class="profile-pic-container">
     <img src="{{user.avatar}}" alt="img" class="profile-pic">
     <div>
       <p class="mt-3 text-center"><small><strong>{{user.currentJob}}</strong></small></p>
-      <div class="card">
-        <div class="card-body p-1 py-1 d-flex align-items-center">
+            {{#isFounder user.name}}
+        <div class="card-body p-1 py-1 d-flex flex-column align-items-center">
           <div class="d-inline-flex align-items-center">
-            <i class="m-2 fa fa-star fs-5" style="color: #BBCAFC;"></i>
+            <i class="m-2 fa fa-star fs-3" style="color: #BBCAFC;"></i>
           </div>
           <div class="d-inline-flex align-items-center ml-2">
-            {{#isFounder user.name}}
-            <span style="font-size: 0.8rem; font-weight:700;" class="text-center"> { DS <span style="fint-size:1rem;">Founder</span> }</span>
-            {{/isFounder}}
+            <span style="font-size: 0.8rem; font-weight:700;" class="text-center"> { DevSite <span style="fint-size:1rem;">Founder</span> }</span>
           </div>
 
         </div>
-      </div>
+            {{/isFounder}}
 
     </div>
   </div>
@@ -83,12 +81,12 @@
     <p><sub>Projects</sub></p>
 
     {{#if (isMyProfile userName=user.name currentUserName=currentUser.name)}}
-    <div class="add-project my-4">
-      <a href="/create/project">
+      <a href="/create/project" style="text-decoration: none; color:black;">
+      <div class="add-project">
         <i class="fa-solid fa-plus"></i>
         Add new project
-      </a>
     </div>
+      </a>
     {{/if}}
 {{!--     <div class="profile-projects fade-in">
       {{#each user.projects as |project|}}
