@@ -437,11 +437,13 @@ footer>ul * {
 
 .project-container {
     text-decoration: none;
+}
+
+.project-profile-container {
     padding: 0.75rem;
 }
 
 .project {
-    
     max-width: 350px;
     border-radius: 12px;
     color: rgba(0, 0, 0, 0.4);
