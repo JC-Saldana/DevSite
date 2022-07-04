@@ -1,4 +1,4 @@
-# Moneyfy
+# DevSite
 
 DevSite is a platform where you can share your development projects in a visual way.
 
