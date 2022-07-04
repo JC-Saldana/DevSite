@@ -1,27 +1,19 @@
-# DevSite
+# Moneyfy
 
-MoneyFy is a platform that helps you control your spending and achieve your savings goals.
+DevSite is a platform where you can share your development projects in a visual way.
 
-- 💰 Add your incomes 
-- 💸 Control your expenses
-- 📈 Set your target
-- 🎯 Calculate how long it will take you to reach it
+- 👨🏻‍💻 Share your projects
+- 🧑🏻‍🚀 Comment on other devs' projects
+- ❤️ Save your favorites
+- 🤟🏻 And meet new developers
 <br> <br>
 ## ✨  Technology used
 
 | Frontend (Web) | Backend (API REST) |
 | ------- |  ----- |
 | JavaScript | NodeJS  |
-| React | Express  |
+| Handlebars | Express  |
 | HTML | MongoDB  |
-| SASS | Mongoose  |
+| CSS | Mongoose  |
 
-<br> <br>
-
-## 🧑🏼‍🚀 Trial User
-If you don't want to register you can use this user that already has some data for testing purposes
-```sh
-mail: mail@mail.com
-pass: 12345678
-```
-<br> 
+<br>
