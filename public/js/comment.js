@@ -13,7 +13,6 @@ function deleteButtonListener(button) {
     const commentId = button.getAttribute('data-id')
     const deleteComment = () => httpClient.post(`/comment/delete/params`, null, { params: { commentId, projectId } })
         .then(newComments => {
-            console.log(newComments.data)
             if (newComments.data.length === 0) {
                 const noCommentContainer = document.querySelector(".no-comments-container")
                 const test = document.createElement("div");
