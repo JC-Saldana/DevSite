@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -e hbs,js,css app.js",
+    "dev": "nodemon -e hbs,js,css index.js",
     "seed": "node ./bin/seeds.js",
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
