@@ -47,7 +47,7 @@ passport.use('local-auth', new LocalStrategy(
 passport.use('github', new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: "https://devsite-ironhack.herokuapp.com/auth/github/callback"
+  callbackURL: "https://devsite-ironhack.vercel.app/auth/github/callback"
 }, function (accessToken, refreshToken, profile, done) {
   User.findOne({ $or: [{ githubId: profile.id }, { email: profile.email }] })
     .then((user) => {

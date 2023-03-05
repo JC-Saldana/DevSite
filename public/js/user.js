@@ -1,5 +1,5 @@
 const httpClient = axios.create({
-  baseURL: 'https://devsite-ironhack.herokuapp.com/'
+  baseURL: 'https://devsite-ironhack.vercel.app/'
 })
 
 // Search users form
